@@ -21,7 +21,7 @@
 
 ### Project Details
 
-The project essentially consists of four parts that will create a cohesive application. In the following sections each of them are described in great detail.
+The project essentially consists of four parts that will create a cohesive application. In the following sections, each of them is described in great detail.
 
 #### Coretime Abstractions
 
@@ -32,15 +32,24 @@ Considering that the entire project is built upon the ideas presented in the Agi
   TODO: IMAGE
 
 - **Partitioning** UI will offer users a convenient method for splitting their region. The UI will visually represent the region as a timeline, highlighting all potential pivotal points available for partitioning.
-  [![parititoning-v2.png](https://i.postimg.cc/zB7y0tkk/parititoning-v2.png)](https://postimg.cc/FdfFKx8f)
 
-- **Interlacing** UI will also allow users to easily interlace the region they own. The user will be able to specify the region core mask as a fraction. The UI will visually show a block colored with a distinct color based on the fraction. TODO: Provide better image
-  [![image.png](https://i.postimg.cc/brdwLzrz/image.png)](https://postimg.cc/p5bvLMK7)
+  <p align="center">
+    <img width="800" src="https://i.postimg.cc/zB7y0tkk/parititoning-v2.png"/>
+  </p>
+
+- **Interlacing** UI will also allow users to easily interlace the region they own. The user will be able to specify the region core mask as a fraction. The UI will visually show a block colored with a distinct color based on the fraction. TODO: Provide a better image
+  <p align="center">
+    <img width="400" src="https://i.postimg.cc/brdwLzrz/image.png"/>
+  </p>
 
 - **Naming Regions & Tasks**: Users will have the option to assign names to their regions and tasks, making it simple to differentiate them.
 
 - **Assignment** UI will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process. TODO: better image
-  [![image-2.png](https://i.postimg.cc/ncjLDcN2/image-2.png)](https://postimg.cc/Vdw1y1f0)
+  <p align="center">
+    <img width="500" src="https://i.postimg.cc/ncjLDcN2/image-2.png"/>
+  </p>
 
 - **Transfer** UI will offer a straightforward modal for users to perform transfers. TODO: better image
-  [![H6k9-3q-Aj-Wmv-YXl-Zjhh-Bl-Axhexx-Kp-Z1-Miwg-QCABPayqx-NV-l-Xg0-Heuluwbyv467-Stqa8-FGg-Vnx-Ch-W0-Jg-Ldafs1fdl-Ru-Y5-Hk-Z5-GW.png](https://i.postimg.cc/k59MzNGY/H6k9-3q-Aj-Wmv-YXl-Zjhh-Bl-Axhexx-Kp-Z1-Miwg-QCABPayqx-NV-l-Xg0-Heuluwbyv467-Stqa8-FGg-Vnx-Ch-W0-Jg-Ldafs1fdl-Ru-Y5-Hk-Z5-GW.png)](https://postimg.cc/FYWQJLj0)
+  <p align="center">
+    <img width="400" src="https://i.postimg.cc/k59MzNGY/transfer.png"/>
+  </p>
