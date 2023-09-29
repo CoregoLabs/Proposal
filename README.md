@@ -39,17 +39,88 @@ Considering that the entire project is built upon the ideas presented in the Agi
 
 - **Interlacing** UI will also allow users to easily interlace the region they own. The user will be able to specify the region core mask as a fraction. The UI will visually show a block colored with a distinct color based on the fraction. TODO: Provide a better image
   <p align="center">
-    <img width="400" src="https://i.postimg.cc/brdwLzrz/image.png"/>
+    <img width="300" src="https://i.postimg.cc/brdwLzrz/image.png"/>
   </p>
 
 - **Naming Regions & Tasks**: Users will have the option to assign names to their regions and tasks, making it simple to differentiate them.
 
 - **Assignment** UI will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process. TODO: better image
   <p align="center">
-    <img width="500" src="https://i.postimg.cc/ncjLDcN2/image-2.png"/>
+    <img width="400" src="https://i.postimg.cc/ncjLDcN2/image-2.png"/>
   </p>
 
 - **Transfer** UI will offer a straightforward modal for users to perform transfers. TODO: better image
   <p align="center">
-    <img width="400" src="https://i.postimg.cc/k59MzNGY/transfer.png"/>
+    <img width="300" src="https://i.postimg.cc/k59MzNGY/transfer.png"/>
   </p>
+
+#### Secondary Market
+
+Coretime is a resource that goes to waste if not utilized during its intended time. When you purchase a core for a month, it means you can use a maximum of one core at any given moment during that specific time period. If the core is not utilized, the coretime is essentially squandered.
+
+After buying coretime during the bulk period, one may realize that the purchased coretime is either too much or too little for the intended use. The secondary market assists these individuals and teams in rectifying their mistakes by enabling them to potentially sell or buy more coretime.
+
+Coretime can be partitioned and interlaced meaning most of the coretime on sale will hardly be the same. For this reason we are going to utilise the order book model.
+
+The seller will need to specify the price for the entire region, and based on that, the contract will calculate the price of one bit, which is equivalent to 1/80th of the price of the entire region.
+
+This means that the total value of the coretime owned by the seller will go down every time the smallest unit of computation is not used. From here, we can come to the conclusion that the price of the region that is being on sale is dynamic.
+
+**The steps of selling and buying coretime:**
+
+1.  A user decides to sell one of their regions.
+	-   The user defines the price that they intend to sell the region for.
+	-   The contract calculates the price per one bit. 
+2.  Another user decides to buy some coretime.
+	-   They are browsing the market, and they have decided they want to buy a specific region.   
+	-   The user will have to pay the price for the region; however, this won't be the price of the entire region. The price will be defined by remaining_smallest_units * price_per_unit.
+3.  The user pays the price, the seller receives the paid amount, and the buyer receives the region.
+
+In case a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to actually create a region that has the properties they desire.
+The contract will be able to follow the steps the buyer provides and create a region that the buyer wants to buy. The contract will also calculate the amount that needs to be paid for that and charge the buyer the appropriate amount. After all these steps, the seller will receive their tokens, and the buyer will obtain their desired coretime.
+We refer to this feature  **Region Derivation**. It will enable buyers to have more options when purchasing coretime, making it easier to meet their specific needs.
+
+TODO: Should we provide an example here from the market doc?
+
+**Defining the price of coretime**
+The price of coretime will be highly influenced by supply and demand. Since we are constructing a market with an NFT order book model, users will have the authority to establish the price of the coretime they intend to sell.
+
+Depending on whether the seller owns an entire core, only partitioned parts, or has it interlaced, the selling price of the coretime will be affected.
+
+As mentioned earlier, the pricing of a region will be determined at a bit level. This approach proves particularly useful because it allows us to establish a pricing structure that decreases when coretime is wasted.
+
+In situations where the buyer's instructions involve partitioning the region and performing interlacing on the partitioned region, the price will be determined based on the bit price of the resulting partitioned region.
+
+This approach allows us to easily calculate the price of the region the buyer intends to purchase, even in situations where the buyer requires multiple instructions to be executed on the region.
+
+**Formula to calculate the price when partitioning:**
+`price = bit_price * pivot_defined_as_bit`
+
+**Formula to calculate the price when interlacing:**
+`price = bit_price * new_region_length_in_bits`
+
+TODO: Should we provide an example here from the market doc?
+
+**Region Derivation**
+As demonstrated in the previous example, buyers have the option to acquire only a portion of a region. This is achieved by requesting a set of instructions from the buyer to generate the desired region. However, manually specifying these instructions can be a challenging task for users.
+
+The approach we aim to adopt here is to enable users to describe the desired characteristics of the region they require. Using all the provided input, the frontend will determine whether the specified region can be generated from all regions listed on the market. If a match is found, the user will be presented with a price for their region. Future iterations of this feature may include Natural Language Processing (NLP) to describe the region’s characteristics.
+
+**Market Architecture**
+The coretime marketplace can be implemented in four different ways, which include:
+
+1.  Ink! smart contract
+2.  Solidity smart contract
+3.  Actor (Not yet implemented in Polkadot/Kusama)
+4.  Parachain
+
+From these options, we've selected the Ink! smart contract as our initial approach. As the project evolves, we anticipate transitioning to either an actor or a separate parachain to access greater possibilities to improve our services.
+We possess a much more comprehensive overview of all these options, which we chose not to include here to avoid making this proposal too lengthy. However, we can provide it if there is interest.
+
+**Implementation Requirements**
+We came up with an implementation design that makes it possible to develop the market as an ink! smart contract located on a contracts parachain in the Polkadot/Kusama ecosystem.
+Our solution has very minimal and reasonable assumptions that are required to make this possible. 
+
+Our sole assumption is that the concepts outlined in the Agile Coretime RFC are implemented in Polkadot/Kusama. We do not have any specific assumptions concerning the XCM configuration on the Coretime parachain to make this work. We only require that the Coretime parachain allows basic reserve transfers.
+
+The only feature with a slightly greater assumption is region derivation. To enable region derivation, we need the Coretime parachain to support the `Transact` XCM instruction.
