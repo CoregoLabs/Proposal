@@ -21,4 +21,26 @@
 
 ### Project Details
 
-TODO: Combine all docs here
+The project essentially consists of four parts that will create a cohesive application. In the following sections each of them are described in great detail.
+
+#### Coretime Abstractions
+
+Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, there is a clear requirement to allow users to perform actions on their Coretime using Corego.
+
+
+- **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that a user can perform on their region.
+  TODO: IMAGE
+
+- **Partitioning** UI will offer users a convenient method for splitting their region. The UI will visually represent the region as a timeline, highlighting all potential pivotal points available for partitioning.
+  [![parititoning-v2.png](https://i.postimg.cc/zB7y0tkk/parititoning-v2.png)](https://postimg.cc/FdfFKx8f)
+
+- **Interlacing** UI will also allow users to easily interlace the region they own. The user will be able to specify the region core mask as a fraction. The UI will visually show a block colored with a distinct color based on the fraction. TODO: Provide better image
+  [![image.png](https://i.postimg.cc/brdwLzrz/image.png)](https://postimg.cc/p5bvLMK7)
+
+- **Naming Regions & Tasks**: Users will have the option to assign names to their regions and tasks, making it simple to differentiate them.
+
+- **Assignment** UI will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process. TODO: better image
+  [![image-2.png](https://i.postimg.cc/ncjLDcN2/image-2.png)](https://postimg.cc/Vdw1y1f0)
+
+- **Transfer** UI will offer a straightforward modal for users to perform transfers. TODO: better image
+  [![H6k9-3q-Aj-Wmv-YXl-Zjhh-Bl-Axhexx-Kp-Z1-Miwg-QCABPayqx-NV-l-Xg0-Heuluwbyv467-Stqa8-FGg-Vnx-Ch-W0-Jg-Ldafs1fdl-Ru-Y5-Hk-Z5-GW.png](https://i.postimg.cc/k59MzNGY/H6k9-3q-Aj-Wmv-YXl-Zjhh-Bl-Axhexx-Kp-Z1-Miwg-QCABPayqx-NV-l-Xg0-Heuluwbyv467-Stqa8-FGg-Vnx-Ch-W0-Jg-Ldafs1fdl-Ru-Y5-Hk-Z5-GW.png)](https://postimg.cc/FYWQJLj0)
