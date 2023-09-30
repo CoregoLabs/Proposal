@@ -373,9 +373,42 @@ Github profiles of team mebers:
 | -----: | ----------- | ------------- |
 | **0a.** | License | MIT (?) |
 | **0b.** | Documentation | The ink! smart contracts will be well written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
-| **0c.** | Testing and Testing Guide |The ink! smart contracts will undergo thorough testing, including ink! integration and end-to-end tests, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. |
+| **0c.** | Testing and Testing Guide | The ink! smart contracts will undergo thorough testing, including ink! integration and end-to-end tests, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. |
 | **0d.** | Docker | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI. |
 | 0e. | Article | TODO |
 | 1. | Coretime Market contract | We will develop the Coretime market as an ink! smart contract, as described above in the *Secondary Market* section. |
 | 2. | Finalize market UI designs | We will finalize the design for the Coretime market UI. Following this, we will proceed to develop the frontend code. |
 | 3. | Coretime Market UI | We will create the UI for interacting with all the functionality exposed by the Coretime market contract. The UI will also offer an intuitive design that allows the buyer to describe their desired region. |
+
+### Milestone 4 - Data Dashboard
+
+-   **Estimated duration:**  1 month
+-   **FTE:**  3.5
+-   **Costs:**  TBD
+
+| Number | Deliverable | Specification |
+| -----: | ----------- | ------------- |
+| **0a.** | License | MIT (?) |
+| **0b.** | Documentation | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
+| **0c.** | Testing and Testing Guide | The data dashboard doesn't contain any critical logic; nevertheless, we will ensure that all the data displayed on the dashboard is accurate. |
+| **0d.** | Docker | We will provide Dockerfiles for the ink! smart contracts that that will configure and run the Corego UI. |
+| 0e. | Article | TODO |
+| 1. | Finalize data dashboard UI designs | We will finalize the design for the data dashboard UI. Following this, we will proceed to develop the frontend code. |
+| 2. | Data Dashboard UI | We will create the data dashboard UI, which will include all the sections described in the project details section of the proposal. |
+
+### Milestone 5 - Developer Console
+
+-   **Estimated duration:**  1.5 month
+-   **FTE:**  3.5
+-   **Costs:**  TBD
+
+| Number | Deliverable | Specification |
+| -----: | ----------- | ------------- |
+| **0a.** | License | MIT (?) |
+| **0b.** | Documentation | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
+| **0c.** | Testing and Testing Guide | All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will additionally ensure that the alerts are working correctly. |
+| **0d.** | Docker | We will provide Dockerfiles for the ink! smart contracts that that will configure and run the Corego UI. |
+| 0e. | Article | TODO |
+| 1. | Developer Console design | We will finalize the design for the developer console UI. Following this, we will proceed to develop the frontend code. |
+| 2. | Coretime Managment | We will implement all the components mentioned in the *Coretime management* section above. |
+| 3. | Coretime Managment | We will implement all the alerts mentioned in the "Alerts" section above using the web3alert SDK. |
