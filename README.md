@@ -198,3 +198,79 @@ Data:
 2.  Interlacing
 3.  Assignments
 4.  Transfers
+
+#### Developer Console
+
+The developer console is a pivotal tool, aiding teams in navigating the coretime market and managing their owned regions. Corego stands out as the only cloud management platform tailored exclusively for the Polkadot ecosystem. It mirrors the capabilities of centralized cloud computing management platforms; it will provide valuable data and reporting, inform users via alerts, and eventually offer recommendations based on machine learning models to improve resource allocation. Ultimately, the developer console’s key focus is to optimize teams computing spendings.
+
+We have split the developer console into two sections: Coretime management and alerts.
+
+**Coretime Managment**
+
+This section is further subdivided into three subsequent sections, which are described in detail below.
+
+**1. Workload**
+Observing the workload for each region will help users to make well-informed decisions on their regions.
+
+TODO: add design image here
+Visual description:
+
+Similarly to how we showcase the regions in the base design we will list all of the regions that are assigned to a specific task. However, we won’t show all the data here that is part of the base design since it isn’t really relevant.
+
+We will showcase the following metadata on each card item:
+1.  Region name
+2.  Task name
+3.  Assigned at (block number or date)
+4.  Finality
+
+Additional visuals:
+
+1.  A graph showcasing the utilization of coretime by the given task. The graph should contain the maximum coretime that can be utilized by the given region and the actual consumption.
+
+2.  The timeline of the region. This will show all the operations that were done on the region to achieve its current form.
+
+3.  The UI will indicate the upcoming task within this region if there is one scheduled. It will show the task name and the start time.
+
+  <p align="center">
+    <img width="600" src="https://gcdnb.pbrd.co/images/l5W9tE6szrNf.png?o=1"/>
+  </p>
+
+**2. Tasks**
+
+The list of tasks the user published to the relay chain. We anticipate this to help the user to keep track of all their tasks and upload any new tasks before assignment to a region. 
+
+The UI will list all of the tasks that the user uploaded to the relay chain. It will also contain the following set of options:
+1.  Upload task
+2.  Rename task
+
+**3. Costs**
+
+The price the user paid per region and the total cost of all the regions will provide users a view of Polkadot spending at a glance.
+It is useful to be aware of the financial cost of the regions to make future optimizations.
+
+TODO: use image instead
+*Visual description:*
+Similarly to how we showcase the regions in the regions dashboard design we will list all of the regions. However, we will only show the cost related data here including:
+-   Price paid for the entire region
+-   Price of the region defined per timeslice
+-   The current average price per timeslice for internal comparisons
+
+**Alerts**
+
+We will implement these alerts using web3alert until we move onto our own infrastructure for more advanced alerts.
+
+**1. Region Sold**
+When a user's listed region is sold, they will be notified. This ensures that the user is promptly informed of the successful sale of their region.
+
+**2. Task Started**
+When a scheduled task becomes the current workload on a user's region, the user will be alerted. This is crucial to update users on the new tasks running in their region.
+
+**3. ICP Payout Available**
+Users will be notified when a payout is available for their coretime contribution to the instantaneous pool, which serves as a reminder to claim their due payouts.
+
+**4. Available Cores**
+Users will be informed about the number of cores available for the next bulk sale. This alert aims to help users prepare for the upcoming sale, especially if there are changes in core limits.
+
+**Integrations**
+
+Being able to export consumption and utilization reports and share general analysis to the most popular communication networks (Telegram , Discord and Slack) provides teams the flexibility needed to collaborate effectively and perform tasks such as accounting.
