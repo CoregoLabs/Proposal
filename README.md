@@ -128,3 +128,73 @@ This is because regions can only be partitioned or interlaced on the Coretime pa
 
 **Region NFT Contract**
 To create a marketplace on a contracts parachain, we'll need an NFT region contract. We'll use the openbrush library to simplify development, as it will only require a few adjustments.
+
+TODO: Should I add the in-depth details how cross-chain region transfers will work?
+
+#### Data Dashboard
+
+Corego's Data Dashboard is a central hub for users, offering essential insights and real-time market data. With a user-friendly interface, it provides context, data from the Coretime chain, market information, and other useful insights. This empowers users to make informed decisions, whether they are buying or selling coretime or performing other operations.
+
+We have divided the data dashboard into four sections.
+
+**1. Constants**
+Displaying configuration constants to the user is be highly beneficial, giving them a more comprehensive macro understanding of the system.
+
+For instance, by tracking the volume of coretime channeled into the Instantaneous Coretime Pool, we can gauge the prevailing demand for coretime. Delving deeper, we could measure pool payouts and determine a ratio comparing the volume of coretime sold in the pool to the volume deposited. Such metrics, among others, would provide invaluable information.
+
+Data shown in the constants section:
+-   Interlude Period Length: Time during which the bulk sale is not active.   
+-   Leadin Period Length: Time during which the sale price varies.
+-   Region length: The length of the regions available for purchase during the upcoming bulk sale.
+-   Cores Limit: The maximum number of cores that can be sold.
+-   Renewal Price Increase: The maximum price increase of a renewable region.
+
+**2. Coretime Chain**
+While we don't directly oversee the operations of the coretime chain, indexing data from the primary market can offer significant insights.
+
+Data
+-   Reserved Cores: Cores utilized by system parachains.
+-   Renewed Cores: Cores renewed by non-system parachains.
+-   Leases: Number of leases.
+-   Current Bulk Sale Period: Ongoing period of bulk sale.
+-   Bulk Sale Offerings: Number of cores offered in the bulk sale.
+-   Bulk Sale Transactions: Number of cores sold.
+-   Unassigned Regions: Total number of regions without assignments.
+-   Assigned Regions: Total number of regions with assignments.
+-   Region Status: Number of finalized and provisional regions.
+-   Leadin Period Price Trend: Continuous decrease in bulk coretime price.
+-   Post-Leadin Coretime Price: Price after the leadin period.
+-   Core Utilization: Percentage of utilized cores (with a graph for time-based visualization).
+-   Region Utilization: Percentage of utilized regions (with a graph for time-based visualization).
+-   Instantaneous Pool Data
+-   Contributor Input: Circle graph showcasing contributor-provided and system-provided bits, akin to the income graph on the dotreasury website.
+-   Coretime Purchases: Volume purchased during a specific time frame.
+-   Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website. TODO: should we mention dotreasury?
+
+**3. Market**
+As the secondary market expands with increasing user transitions, it becomes crucial to index pertinent data.
+
+For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of coretime's price trends. Moreover, real-time indexing of coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple coretime markets akin to the 1inch protocol. TODO: Should we mention 1inch?
+
+Data
+-   Regions on sale (for a specified period)
+-   Monthly Regions Sold (with future potentials for a ratio - (sold/on sale)).
+-   Purchases: Number for a specified period (day, week, etc.).
+-   Market Dominance: Share of secondary market.
+-   Trading Volume: For a specified period in USD and DOT.
+-   Total Transactions: Made between unique active wallets and contracts.
+-   Total Users: Registered users with at least one market transaction.
+-   Monthly Active Users: Registered users with at least one monthly transaction.
+-   Average Price Per Timeslice: With a graph depicting data over time in USD and DOT.
+-   Regions flowing in and out of the parachain where Corego is deployed.
+
+**4. Tooling**
+
+As outlined earlier, users have an array of tools at their disposal to modify their regions. Compiling data on these modifications, such as the number of interlaced or partitioned regions at any given moment, can offer robust insights into market activity and specialization.
+
+Data:
+*The number of occurrences during a specified time period:*
+1.  Partitioning
+2.  Interlacing
+3.  Assignments
+4.  Transfers
