@@ -274,3 +274,47 @@ Users will be informed about the number of cores available for the next bulk sal
 **Integrations**
 
 Being able to export consumption and utilization reports and share general analysis to the most popular communication networks (Telegram , Discord and Slack) provides teams the flexibility needed to collaborate effectively and perform tasks such as accounting.
+
+### Ecosystem Fit
+
+Corego stands out as a pivotal player within the ecosystem, strategically built atop the coretime-chain. Corego is committed to optimizing resource allocations, and to do so, we'll leverage the chain's unique functionalities to offer advanced abstractions, a coretime-focused indexer, a secondary market, and a developer console. 
+This multifaceted approach caters to teams across the Polkadot and Kusama ecosystems. It provides them with the tools to seamlessly interact with the coretime-chain, gain deep insights into coretime markets, trade execution cores effectively and react based on usage details. 
+As integrating the novel coretime concept into Polkadot unfolds, we remain vigilant, anticipating potential competitors in this emerging space.
+
+## Team :busts_in_silhouette:
+
+### Team members
+
+- Julian Saks
+- Sergej Sakac
+
+### Contact
+
+- **Contact Name:** Julian Saks, Sergej Sakac
+- **Contact Email:** juliansaks@gmail.com, sakacszergej@gmail.com
+- **Website:** TODO
+
+### Legal Structure
+
+- **Registered Address:** TBD
+- **Registered Legal Entity:** TBD
+
+### Team's experience
+
+Julian is the President of Texas Blockchain and a third-year student at the University of Texas at Austin. He has scaled Texas Blockchain to one of the largest university blockchain clubs in the United States and the world. Julian is also a recent Founder alumni of the Polkadot Blockchain Academy (PBA) held in Berkeley.
+
+Sergej is a member of the Polkadot Fellowship. He has been an external core contributor on substrate and polkadot for more than a year now. Sergej is also a recent Engineering alumni of the Polkadot Blockchain Academy (PBA) held in Berkeley.
+
+### Team Code Repos
+
+Github organization:
+https://github.com/CoregoLabs
+
+Github profiles of team mebers:
+- https://github.com/Szegoo
+- https://github.com/kingjulio8238
+
+### Team LinkedIn Profiles (if available)
+
+- linkedin.com/in/juliansaks/
+- linkedin.com/in/sergej-sakac-334a47252
