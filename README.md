@@ -329,7 +329,7 @@ Github profiles of team mebers:
 
 ### Milestone 1 - Coretime Abstractions
 
--   **Estimated duration:**  1.5 month
+-   **Estimated duration:**  1 month
 -   **FTE:**  3.5
 -   **Costs:**  TBD
 
@@ -365,7 +365,7 @@ Github profiles of team mebers:
 
 ### Milestone 3 - Coretime Market
 
--   **Estimated duration:**  2 month
+-   **Estimated duration:**  2 months
 -   **FTE:**  3.5
 -   **Costs:**  TBD
 
