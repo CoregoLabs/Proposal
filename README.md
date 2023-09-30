@@ -123,4 +123,8 @@ Our solution has very minimal and reasonable assumptions that are required to ma
 
 Our sole assumption is that the concepts outlined in the Agile Coretime RFC are implemented in Polkadot/Kusama. We do not have any specific assumptions concerning the XCM configuration on the Coretime parachain to make this work. We only require that the Coretime parachain allows basic reserve transfers.
 
-The only feature with a slightly greater assumption is region derivation. To enable region derivation, we need the Coretime parachain to support the `Transact` XCM instruction.
+The only feature with a slightly greater assumption is region derivation. To enable region derivation, we need the Coretime parachain to support the `Transact` XCM instruction. 
+This is because regions can only be partitioned or interlaced on the Coretime parachain. Consequently, during region derivation, the region must be transferred to the Coretime parachain, where all instructions are executed (this is where the `Transact` instruction is required). Subsequently, the new regions are transferred back to the contracts parachain, where one of the regions is sent to the buyer, while the remaining regions are listed again on the market.
+
+**Region NFT Contract**
+To create a marketplace on a contracts parachain, we'll need an NFT region contract. We'll use the openbrush library to simplify development, as it will only require a few adjustments.
