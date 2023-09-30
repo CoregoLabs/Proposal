@@ -318,3 +318,28 @@ Github profiles of team mebers:
 
 - linkedin.com/in/juliansaks/
 - linkedin.com/in/sergej-sakac-334a47252
+
+## Development Roadmap 🔩
+
+### [Overview](https://github.com/w3f/Grants-Program/blob/master/applications/application-template.md#overview-1)
+
+-   **Total Estimated Duration:**  TBD
+-   **FTE:**  4 (3 + designer)
+-   **Total Costs:**  TBD
+
+### Milestone 1 - Coretime Abstractions
+
+-   **Estimated duration:**  1.5 month
+-   **FTE:**  3
+-   **Costs:**  TBD
+
+| Number | Deliverable | Specification |
+| -----: | ----------- | ------------- |
+| **0a.** | License | MIT (?) |
+| **0b.** | Documentation | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
+| **0c.** | Testing and Testing Guide | All interactions with the Coretime parachain will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will be running a local zombienet network to simulate the existance of a Coretime parachain. |
+| **0d.** | Docker | We will provide a Dockerfile that will set up the and run the Corego Coretime abstractions UI. |
+| 0e. | Article | TODO |
+| 1. | Design finalization | We will complete the design for the Coretime Abstraction UI, and based on that, we will proceed to develop the frontend code. |
+| 2. | Mock Coretime Parachain runtime  | We will establish a parachain dedicated to testing the Coretime abstractions. Essentially, this involves creating a parachain that implements the `broker pallet`. We will use this runtime in our zombienet network. This will be used in the upcoming milestones as well. |
+| 3. | Coretime Abstraction UI | We will implement all the sections and components described in the *Coretime Abstractions* section above. To summarize, this will consist of the following components: region dashboard, partitioning UI, interlacing UI, naming regions & tasks components, assignment UI and transfer UI |
