@@ -412,3 +412,79 @@ Github profiles of team mebers:
 | 1. | Developer Console design | We will finalize the design for the developer console UI. Following this, we will proceed to develop the frontend code. |
 | 2. | Coretime Managment | We will implement all the components mentioned in the *Coretime management* section above. |
 | 3. | Coretime Managment | We will implement all the alerts mentioned in the "Alerts" section above using the web3alert SDK. |
+
+## Future Plans
+
+By completing all the milestones, we will have all the components of Corego in place. Our plan is for future work to be built upon these components.
+
+The following sections contain the plans and ideas we currently have, and it is highly likely that this list will expand as we work on the milestones outlined in this document.
+
+#### Coretime Abstractions
+
+Do we have anything to add here?
+
+#### Coretime Market
+
+- Transitioning from an Ink! contract to a parachain (or even an actor) will provide us with greater flexibility over XCM, improved performance, and the possibility to more easily integrate with other pallets.
+- We intend to incorporate the capability to describe a region using NLP. This approach will allow users to easily describe the region they are interested in, and the frontend will subsequently present them with all the available options to choose from, along with their respective prices.
+
+#### Data Dashboard
+
+With the emergence of shared builders, which aggregate and batch work items into work packages for attestations, a growing value add exists to offer teams structured, indexed data on these builders. Such data can help teams discern which cores are currently in use, identify cores nearing their capacity, understand the average allocation required for builders to collect and refine, and gain insights into other vital metrics.
+
+Data of the new section:
+1.  Active builders on last relay chain block
+2.  Volume of work items processed by the shared builder group on the last relay chain block
+3.  Categories of work classes processed (Actor, Parachain…)  
+4.  Analysis of builder's coretime consumption.
+5.  Payout metrics for builders (once builders are deployed on Polkadot/Kusama)
+
+#### Developer Console
+
+**Advisor**
+
+A machine learning model akin to the Azure advisor recommending the assignment size and associated costs for a specific task. Providing users with these recommendations will ensure that they don’t buy unnecessary coretime. Our model will be trained from the first usage and recommends assignments for tasks based on that usage information for optimized costs. As the model receives more data from one bulk period to another, it will improve to offer more accurate recommendations.
+
+As the advisor model evolves and gathers more data, it will adeptly discern the computational demands of various tasks. This refined understanding will empower it to provide precise coretime recommendations from the very first period, leading to substantial savings for teams.
+
+TODO: Should an example be added here?
+
+**Identity and Access Management**
+
+Including the functionality to add multiple team members to the console promotes team collaboration. Alongside having multiple identities, we will include permissions to avoid coretime misuse. The integration of the multisig pallet is a clear solution to achieve such and will make sense once Corego has transitioned to a specialized chain with more flexibility to offer such features.
+
+**Team KPIs**
+
+Offering the ability for teams to set cost and utilization KPIs will allow them to set goals to Improve performance and perform analysis to rectify mistakes.
+
+An example of a KPI for tracking core utilization:
+```
+UtilizationIndex = capacity - |capacity * 0.8 - consumption|
+```
+
+This KPI assumes that the optimal coretime usage is 80% of the purchased coretime. Any deviation from this will result in a reduced value for the utilization index.
+
+**Gamification**
+
+Offering rewards for optimizations by integrating an ‘optimization leaderboard’ will expose bad practices and in doing so encourage teams to be more computationally efficient.
+
+To achieve this we will use a specific KPI: (coretime utilized / coretime bought) to signify a team's computational efficiency. The leaderboard will list users in descending order based on this KPI.
+
+**Additional Alerts**
+
+We will implement these alerts using our own infrastructure which will allow us to export more data and integrate with more communication networks (Matrix, Whatsapp, Email). This commitment to having infrastructure assigned to alerts will specifically benefit us as we anticipate most notification services won’t support our chain early on.
+
+- **Expiring Region Warning**
+	Warning the user whenever one of his regions is close to expiry will remind him to potentially buy a new region for future assignments.
+
+	We look to integrate this alert by creating an unique event that emits when the region’s parameter ‘when’ exceeds ‘last_until’ and emit an event to reflect this. We will listen for this event and alert the user when it is emitted.
+
+- **Wastage Reporting**
+	Notifying the user in case of utilizing a very small portion of the owned coretime may influence the user to reconsider their usage optimizations and potentially decide to sell part of their region on the market.
+
+	We will gather averages of the user’s consumption over time and once data is sufficient we will detect scenarios where the consumption is a lot less than the all-time average. We will listen for this event and alert the user when it is emitted.
+
+- **High Usage Reporting**
+	Alerting the user that a lot of his coretime is being utilized may influence him to buy more coretime on the market or stop certain tasks.
+
+	In the same way as reporting wastage, we will gather averages of the user’s consumption over time and we’ll detect scenarios where the consumption is more than the all-time average and emit an event to reflect this. We will listen for this event and alert the user when it is emitted.
