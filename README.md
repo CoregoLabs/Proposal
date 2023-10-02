@@ -99,8 +99,6 @@ This approach allows us to easily calculate the price of the region the buyer in
 **Formula to calculate the price when interlacing:**
 `price = bit_price * new_region_length_in_bits`
 
-TODO: Should we provide an example here from the market doc?
-
 **Region Derivation**
 As demonstrated in the previous example, buyers have the option to acquire only a portion of a region. This is achieved by requesting a set of instructions from the buyer to generate the desired region. However, manually specifying these instructions can be a challenging task for users.
 
@@ -128,8 +126,6 @@ This is because regions can only be partitioned or interlaced on the Coretime pa
 
 **Region NFT Contract**
 To create a marketplace on a contracts parachain, we'll need an NFT region contract. We'll use the openbrush library to simplify development, as it will only require a few adjustments.
-
-TODO: Should I add the in-depth details how cross-chain region transfers will work?
 
 #### Data Dashboard
 
@@ -169,12 +165,12 @@ Data
 -   Instantaneous Pool Data
 -   Contributor Input: Circle graph showcasing contributor-provided and system-provided bits, akin to the income graph on the dotreasury website.
 -   Coretime Purchases: Volume purchased during a specific time frame.
--   Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website. TODO: should we mention dotreasury?
+-   Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website.
 
 **3. Market**
 As the secondary market expands with increasing user transitions, it becomes crucial to index pertinent data.
 
-For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of coretime's price trends. Moreover, real-time indexing of coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple coretime markets akin to the 1inch protocol. TODO: Should we mention 1inch?
+For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of coretime's price trends. Moreover, real-time indexing of coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple coretime markets akin to the 1inch protocol.
 
 Data
 -   Regions on sale (for a specified period)
@@ -419,10 +415,6 @@ By completing all the milestones, we will have all the components of Corego in p
 
 The following sections contain the plans and ideas we currently have, and it is highly likely that this list will expand as we work on the milestones outlined in this document.
 
-#### Coretime Abstractions
-
-Do we have anything to add here?
-
 #### Coretime Market
 
 - Transitioning from an Ink! contract to a parachain (or even an actor) will provide us with greater flexibility over XCM, improved performance, and the possibility to more easily integrate with other pallets.
@@ -446,8 +438,6 @@ Data of the new section:
 A machine learning model akin to the Azure advisor recommending the assignment size and associated costs for a specific task. Providing users with these recommendations will ensure that they don’t buy unnecessary coretime. Our model will be trained from the first usage and recommends assignments for tasks based on that usage information for optimized costs. As the model receives more data from one bulk period to another, it will improve to offer more accurate recommendations.
 
 As the advisor model evolves and gathers more data, it will adeptly discern the computational demands of various tasks. This refined understanding will empower it to provide precise coretime recommendations from the very first period, leading to substantial savings for teams.
-
-TODO: Should an example be added here?
 
 **Identity and Access Management**
 
