@@ -292,8 +292,8 @@ As integrating the novel coretime concept into Polkadot unfolds, we remain vigil
 
 ### Legal Structure
 
-- **Registered Address:** TBD
-- **Registered Legal Entity:** TBD
+- **Registered Address:** Kanalska 7 Novi Sad Serbia
+- **Registered Legal Entity:** MASTER UNION LLC.
 
 ### Team's experience
 
