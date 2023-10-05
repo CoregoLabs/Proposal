@@ -140,7 +140,7 @@ For instance, by tracking the volume of coretime channeled into the Instantaneou
 
 Data shown in the constants section:
 
-- \*Interlude Period Length: Time during which the bulk sale is not active.
+- Interlude Period Length: Time during which the bulk sale is not active.
 - Leadin Period Length: Time during which the sale price varies.
 - Region Length: The length of the regions available for purchase during the upcoming bulk sale.
 - Cores Limit: The maximum number of cores that can be sold.
