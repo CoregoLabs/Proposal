@@ -14,11 +14,11 @@
 
 ### Overview
 
-- Corego is a marketplace and a set of tools for Coretime manipulation and data tracking, with the goal of making development on Polkadot faster, easier, more flexible, and as an end result cheaper.
+- Corego is a marketplace and a set of tools for Coretime manipulation and data tracking, with the goal of making development on Polkadot faster, easier, more flexible, and, as an end result, cheaper.
 - Corego is a project that builds upon the ideas presented in the Agile Coretime RFC. The project will be developed under the assumption that the functionality described in the RFC will be implemented within the Polkadot/Kusama ecosystem.
   Given that the pallet containing all the logic presented in the RFC already exists, we will have the capability to undertake all the development outlined in this proposal.
 
-* Creating proper tooling and a market for Coretime can have a significant impact on the development that takes place on Polkadot. It will enable experiments and small personal projects to be deployed to Polkadot with minimal effort and cost.
+* Creating robust tooling and a market for Coretime can have a significant impact on the development that takes place on Polkadot. It will enable experiments and small personal projects to be deployed to Polkadot with minimal effort and cost.
 
 ### Project Details
 
@@ -26,25 +26,26 @@ The project essentially consists of four parts that will create a cohesive appli
 
 #### Coretime Abstractions
 
-Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, there is a clear requirement to allow users to perform actions on their Coretime using Corego.
+Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, users must be allowed to perform actions on their Coretime using Corego.
 
-- **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that a user can perform on their region.
+- **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that users can perform on their region.
+
   TODO: IMAGE
 
-- **Partitioning** UI will offer users a convenient method for splitting their region. The UI will visually represent the region as a timeline, highlighting all potential pivotal points available for partitioning.
+- **Partitioning UI** will offer users a convenient method for splitting their region. The UI will visually represent the region as a timeline, highlighting all potential pivotal points available for partitioning.
 
   <p align="center">
     <img width="800" src="https://i.postimg.cc/zB7y0tkk/parititoning-v2.png"/>
   </p>
 
-- **Interlacing** UI will also allow users to easily interlace the region they own. The user will be able to specify the region core mask as a fraction. The UI will visually show a block colored with a distinct color based on the fraction. TODO: Provide a better image
+- **Interlacing UI** will also allow users to easily interlace the region they own. The user will be able to specify the region core mask as a fraction. The UI will visually show a block colored with a distinct color based on the fraction. TODO: Provide a better image
   <p align="center">
     <img width="300" src="https://i.postimg.cc/brdwLzrz/image.png"/>
   </p>
 
 - **Naming Regions & Tasks**: Users will have the option to assign names to their regions and tasks, making it simple to differentiate them.
 
-- **Assignment** UI will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process. TODO: better image
+- **Assignment** **Assignment UI** will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process. TODO: better image
   <p align="center">
     <img width="400" src="https://i.postimg.cc/ncjLDcN2/image-2.png"/>
   </p>
@@ -56,40 +57,40 @@ Considering that the entire project is built upon the ideas presented in the Agi
 
 #### Secondary Market
 
-Coretime is a resource that goes to waste if not utilized during its intended time. When you purchase a core for a month, it means you can use a maximum of one core at any given moment during that specific time period. If the core is not utilized, the coretime is essentially squandered.
+Coretime is a resource that goes to waste if not utilized during its intended time. When you purchase a core for a month, it means you can use a maximum of one core at any given moment during that specific time period. If the core is not utilized, the Coretime is essentially squandered.
 
-After buying coretime during the bulk period, one may realize that the purchased coretime is either too much or too little for the intended use. The secondary market assists these individuals and teams in rectifying their mistakes by enabling them to potentially sell or buy more coretime.
+After buying Coretime during the bulk period, one may realize that the purchased Coretime is either too much or too little for the intended use. The secondary market assists these individuals and teams in rectifying their mistakes by enabling them to sell or buy more Coretime.
 
-Coretime can be partitioned and interlaced meaning most of the coretime on sale will hardly be the same. For this reason we are going to utilise the order book model.
+Coretime can be partitioned and interlaced, meaning most of the Coretime on sale will hardly be the same. For this reason, we are going to utilise the order book model.
 
 The seller will need to specify the price for the entire region, and based on that, the contract will calculate the price of one bit, which is equivalent to 1/80th of the price of the entire region.
 
-This means that the total value of the coretime owned by the seller will go down every time the smallest unit of computation is not used. From here, we can come to the conclusion that the price of the region that is being on sale is dynamic.
+This bit-based valuation means that the total value of the Coretime owned by the seller will decrease every time the smallest computation unit is not used. From here, we can conclude that the price of the region on sale is dynamic.
 
-**The steps of selling and buying coretime:**
+**The steps of selling and buying Coretime:**
 
-1.  A user decides to sell one of the owned regions.
-    - The user defines the price that they intend to sell the region for.
-    - The contract calculates the price per one bit.
-2.  Another user decides to buy some coretime.
-    - They are browsing the market, and they have decided they want to buy a specific region.
-    - The user will have to pay the price for the region; however, this won't be the price of the entire region. The price will be defined by `remaining_smallest_units * price_per_unit`.
+1.  A user decides to sell one of their regions.
+	-   The user defines the price that they intend to sell the region for.
+	-   The contract calculates the price per bit. 
+2.  Another user decides to buy some Coretime.
+	-   They are browsing the market and have decided they want to buy a specific region.   
+	-   The user will have to pay the price for the region; however, this won't be the price of the entire region. The price will be defined by `remaining_smallest_units * price_per_unit`.
 3.  The user pays the price, the seller receives the paid amount, and the buyer receives the region.
 
-In case a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to actually create a region that has the properties they desire.
-The contract will be able to follow the steps the buyer provides and create a region that the buyer wants to buy. The contract will also calculate the amount that needs to be paid for that and charge the buyer the appropriate amount. After all these steps, the seller will receive their tokens, and the buyer will obtain their desired coretime.
-We refer to this feature **Region Derivation**. It will enable buyers to have more options when purchasing coretime, making it easier to meet their specific needs.
+If a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to create a region with the properties they desire. The contract will be able to follow the buyer's steps and create a region that the buyer wants to buy. 
+The contract will also calculate the amount that needs to be paid for that and charge the buyer the appropriate amount. After all these steps, the seller will receive their tokens, and the buyer will obtain their desired Coretime. 
+We refer to this feature as **Region Derivation**. It will give buyers more options when purchasing Coretime, making it easier to meet their specific needs.
 
 TODO: Should we provide an example here from the market doc?
 
-**Defining the price of coretime**
-The price of coretime will be highly influenced by supply and demand. Since we are constructing a market with an NFT order book model, users will have the authority to establish the price of the coretime they intend to sell.
+**Defining the price of Coretime**
+The price of Coretime will be highly influenced by supply and demand. Since we are constructing a market with an NFT order book model, users will have the authority to establish the price of the Coretime they intend to sell.
 
-Depending on whether the seller owns an entire core, only partitioned parts, or has it interlaced, the selling price of the coretime will be affected.
+Depending on whether the seller owns an entire core, only partitioned parts, or has it interlaced, the selling price of the Coretime will be affected.
 
-As mentioned earlier, the pricing of a region will be determined at a bit level. This approach proves particularly useful because it allows us to establish a pricing structure that decreases when coretime is wasted.
+As mentioned earlier, we will determine the pricing of a region at a bit level. This approach proves particularly useful because it allows us to establish a pricing structure that decreases when Coretime is wasted.
 
-In situations where the buyer's instructions involve partitioning the region and performing interlacing on the partitioned region, the price will be determined based on the bit price of the resulting partitioned region.
+In situations where the buyer's instructions involve partitioning the region and performing interlacing on the partitioned region, we will determine the price based on the bit price of the resulting partitioned region.
 
 This approach allows us to easily calculate the price of the region the buyer intends to purchase, even in situations where the buyer requires multiple instructions to be executed on the region.
 
@@ -100,12 +101,12 @@ This approach allows us to easily calculate the price of the region the buyer in
 `price = bit_price * new_region_length_in_bits`
 
 **Region Derivation**
-As demonstrated in the previous example, buyers have the option to acquire only a portion of a region. This is achieved by requesting a set of instructions from the buyer to generate the desired region. However, manually specifying these instructions can be a challenging task for users.
+As demonstrated in the previous example, buyers have the option to acquire only a portion of a region, which is achieved by the buyer submitting a set of instructions to generate the desired region. However, manually specifying these instructions can be a challenging task for users.
 
-The approach we aim to adopt here is to enable users to describe the desired characteristics of the region they require. Using all the provided input, the frontend will determine whether the specified region can be generated from all regions listed on the market. If a match is found, the user will be presented with a price for their region. Future iterations of this feature may include Natural Language Processing (NLP) to describe the region’s characteristics.
+The approach we aim to adopt here is to enable users to describe the desired characteristics of the region they require. Using all the provided input, the frontend will determine whether the specified region can be generated from all regions listed on the market. If a match is found, the user will be presented with a price for their region. Future iterations of this feature may include Natural Language Processing (NLP) to describe the region's characteristics.
 
 **Market Architecture**
-The coretime marketplace can be implemented in four different ways, which include:
+The Coretime marketplace can be implemented in four different ways, which include:
 
 1.  Ink! smart contract
 2.  Solidity smart contract
@@ -117,26 +118,26 @@ We possess a much more comprehensive overview of all these options, which we cho
 
 **Implementation Requirements**
 We came up with an implementation design that makes it possible to develop the market as an ink! smart contract located on a contracts parachain in the Polkadot/Kusama ecosystem.
-Our solution has very minimal and reasonable assumptions that are required to make this possible.
+Our solution has very minimal and reasonable assumptions required to make this possible.
 
 Our sole assumption is that the concepts outlined in the Agile Coretime RFC are implemented in Polkadot/Kusama. We do not have any specific assumptions concerning the XCM configuration on the Coretime parachain to make this work. We only require that the Coretime parachain allows basic reserve transfers.
 
-The only feature with a slightly greater assumption is region derivation. To enable region derivation, we need the Coretime parachain and the contracts parachain to support the `Transact` XCM instruction.
-This is because regions can only be partitioned or interlaced on the Coretime parachain. Consequently, during region derivation, the region must be transferred to the Coretime parachain, where all instructions are executed (this is where the `Transact` instruction is required). Subsequently, the new regions are transferred back to the contracts parachain, where one of the regions is sent to the buyer, while the remaining regions are listed again on the market.
+The only feature with a slightly greater assumption is region derivation. We need the Coretime parachain and the contracts parachain to support the `Transact` XCM instruction to enable region derivation.
+This is because regions can only be partitioned or interlaced on the Coretime parachain. Consequently, during region derivation, the region must be transferred to the Coretime parachain, where all instructions are executed (this is where the Transact instruction is required). Subsequently, the new regions are transferred back to the contracts parachain, where one of the regions is sent to the buyer, while the remaining regions are listed again on the market.
 
 **Region NFT Contract**
-To create a marketplace on a contracts parachain, we'll need an NFT region contract. We'll use the **OpenBrush** library to simplify development, as it will only require a few adjustments.
+To create a marketplace on a contracts parachain, we'll need an NFT region contract. We'll use the openbrush library to simplify development, as it only requires a few adjustments.
 
 #### Data Dashboard
 
-Corego's **Data Dashboard** is a central hub for users, offering essential insights and real-time market data. With a user-friendly interface, it provides context, data from the Coretime chain, market information, and other useful insights. This empowers users to make informed decisions, whether they are buying or selling coretime or performing other operations.
+Corego's **Data Dashboard** is a central hub for users, offering essential insights and real-time market data. With a user-friendly interface, it provides context, data from the Coretime chain, market information, and other useful insights, empowering users to make informed decisions, whether they are buying or selling Coretime or performing other operations.
 
 We have divided the data dashboard into four sections.
 
 **1. Constants**
-Displaying configuration constants to the user will be highly beneficial, giving them a more comprehensive macro understanding of the system.
+Displaying configuration constants to users is highly beneficial, giving them a more comprehensive macro understanding of the system.
 
-For instance, by tracking the volume of coretime channeled into the Instantaneous Coretime Pool, we can gauge the prevailing demand for coretime. Delving deeper, we could measure pool payouts and determine a ratio comparing the volume of coretime sold in the pool to the volume deposited. Such metrics, among others, would provide invaluable information.
+For instance, by tracking daily, weekly, or other periodic purchases and sales, users can better understand Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the 1inch protocol.
 
 Data shown in the constants section:
 
@@ -147,7 +148,7 @@ Data shown in the constants section:
 - Renewal Price Increase: The maximum price increase of a renewable region.
 
 **2. Coretime Chain**
-While we don't directly oversee the operations of the coretime chain, indexing data from the primary market can offer significant insights.
+While we don't directly oversee the operations of the Coretime chain, indexing data from the primary market can offer significant insights.
 
 Data
 
@@ -172,7 +173,7 @@ Data
 **3. Market**
 As the secondary market expands with increasing user transitions, it becomes crucial to index pertinent data.
 
-For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of coretime's price trends. Moreover, real-time indexing of coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple coretime markets akin to the 1inch protocol.
+For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the **1inch** protocol.
 
 Data
 
@@ -201,11 +202,11 @@ _The number of occurrences during a specified time period:_
 
 #### Developer Console
 
-The developer console is a pivotal tool, aiding teams in navigating the coretime market and managing their owned regions. Corego stands out as the only cloud management platform tailored exclusively for the Polkadot ecosystem. It mirrors the capabilities of centralized cloud computing management platforms; it will provide valuable data and reporting, inform users via alerts, and eventually offer recommendations based on machine learning models to improve resource allocation. Ultimately, the developer console’s key focus is to optimize teams computing spendings.
+The developer console is a pivotal tool, aiding teams in navigating the Coretime market and managing their owned regions. Corego stands out as the only cloud management platform tailored exclusively for the Polkadot ecosystem. It mirrors the capabilities of centralized cloud computing management platforms; it will provide valuable data and reporting, inform users via alerts, and eventually offer recommendations based on machine learning models to improve resource allocation. Ultimately, the developer console's key focus is to optimize teams' computing spending.
 
 We have split the developer console into two sections: Coretime management and alerts.
 
-**Coretime Managment**
+**Coretime Management**
 
 This section is further subdivided into three subsequent sections, which are described in detail below.
 
@@ -215,7 +216,7 @@ Observing the workload for each region will help users to make well-informed dec
 TODO: add design image here
 Visual description:
 
-Similarly to how we showcase the regions in the base design we will list all of the regions that are assigned to a specific task. However, we won’t show all the data here that is part of the base design since it isn’t really relevant.
+Similarly to how we showcase the regions in the base design, we will list all the regions assigned to a specific task. However, we won’t show all the data here that is part of the base design since it isn’t relevant.
 
 We will showcase the following metadata on each card item:
 
@@ -244,10 +245,9 @@ The UI will list all of the tasks that the user uploaded to the relay chain. It 
 
 - Upload task
 - Rename task
-
 **3. Costs**
 
-The price the user paid per region and the total cost of all the regions will provide users a view of Polkadot spending at a glance.
+The price the user paid per region and the total cost of all the regions will provide users with a view of Polkadot spending at a glance.
 It is useful to be aware of the financial cost of the regions to make future optimizations.
 
 TODO: use image instead
@@ -269,20 +269,20 @@ When a user's listed region is sold, they will be notified. This ensures that th
 When a scheduled task becomes the current workload on a user's region, the user will be alerted. This is crucial to update users on the new tasks running in their region.
 
 **3. ICP Payout Available**
-Users will be notified when a payout is available for their coretime contribution to the Instantaneous Coretime Pool, which serves as a reminder to claim their due payouts.
+Users will be notified when a payout is available for their Coretime contribution to the instantaneous pool, which serves as a reminder to claim their due payouts.
 
 **4. Available Cores**
 Users will be informed about the number of cores available for the next bulk sale. This alert aims to help users prepare for the upcoming sale, especially if there are changes in core limits.
 
 **Integrations**
 
-Being able to export consumption and utilization reports and share general analysis to the most popular communication networks (Telegram , Discord and Slack) provides teams the flexibility needed to collaborate effectively and perform tasks such as accounting.
+Being able to export consumption and utilization reports and share general analysis to the most popular communication networks (Telegram, Discord, and Slack) provides teams the flexibility needed to collaborate effectively and perform tasks such as accounting.
 
 ### Ecosystem Fit
 
-Corego stands out as a pivotal player within the ecosystem, strategically built atop the coretime-chain. Corego is committed to optimizing resource allocations, and to do so, we'll leverage the chain's unique functionalities to offer advanced abstractions, a coretime-focused indexer, a secondary market, and a developer console.
-This multifaceted approach caters to teams across the Polkadot and Kusama ecosystems. It provides them with the tools to seamlessly interact with the coretime-chain, gain deep insights into coretime markets, trade execution cores effectively and react based on usage details.
-As integrating the novel coretime concept into Polkadot unfolds, we remain vigilant, anticipating potential competitors in this emerging space.
+Corego stands out as a pivotal player within the ecosystem, strategically built atop the Coretime-chain. Corego is committed to optimizing resource allocations, and to do so, we'll leverage the chain's unique functionalities to offer advanced abstractions, a Coretime-focused indexer, a secondary market, and a developer console. 
+This multifaceted approach caters to teams across the Polkadot and Kusama ecosystems. It provides them with the tools to seamlessly interact with the Coretime chain, gain deep insights into Coretime markets, trade execution cores effectively, and react based on usage details. 
+As integrating the novel Coretime concept into Polkadot unfolds, we remain vigilant, anticipating potential competitors in this emerging space.
 
 ## Team :busts_in_silhouette:
 
@@ -417,9 +417,9 @@ Github profiles of team mebers:
 
 ## Future Plans
 
-By completing all the milestones, we will have all the components of Corego in place. Our plan is for future work to be built upon these components.
+By completing all the milestones, we will have all the components of Corego in place. Our plan for future work is to build upon these components.
 
-The following sections contain the plans and ideas we currently have, and it is highly likely that this list will expand as we work on the milestones outlined in this document.
+The following sections contain the plans and ideas we currently have, and this list will likely expand as we work on the milestones outlined in this document.
 
 #### Coretime Market
 
@@ -434,21 +434,21 @@ Data of the new section:
 
 1.  Active builders on last relay chain block
 2.  Volume of work items processed by the shared builder group on the last relay chain block
-3.  Categories of work classes processed (Actor, Parachain…)
-4.  Analysis of builder's coretime consumption.
+3.  Categories of work classes processed (Actor, Parachain…)  
+4.  Analysis of builder's Coretime consumption.
 5.  Payout metrics for builders (once builders are deployed on Polkadot/Kusama)
 
 #### Developer Console
 
 **Advisor**
 
-A machine learning model akin to the Azure advisor recommending the assignment size and associated costs for a specific task. Providing users with these recommendations will ensure that they don’t buy unnecessary coretime. Our model will be trained from the first usage and recommends assignments for tasks based on that usage information for optimized costs. As the model receives more data from one bulk period to another, it will improve to offer more accurate recommendations.
+A machine learning model akin to the Azure advisor recommending the assignment size and associated costs for a specific task. Providing users with these recommendations will ensure that they don’t buy unnecessary Coretime. Our model will be trained from the first usage and recommends assignments for tasks based on that usage information for optimized costs. As the model receives more data from one bulk period to another, it will improve to offer more accurate recommendations.
 
-As the advisor model evolves and gathers more data, it will adeptly discern the computational demands of various tasks. This refined understanding will empower it to provide precise coretime recommendations from the very first period, leading to substantial savings for teams.
+As the advisor model evolves and gathers more data, it will adeptly discern the computational demands of various tasks. This refined understanding will empower it to provide precise Coretime recommendations from the very first period, leading to substantial savings for teams.
 
 **Identity and Access Management**
 
-Including the functionality to add multiple team members to the console promotes team collaboration. Alongside having multiple identities, we will include permissions to avoid coretime misuse. The integration of the multisig pallet is a clear solution to achieve such and will make sense once Corego has transitioned to a specialized chain with more flexibility to offer such features.
+Including the functionality to add multiple team members to the console promotes team collaboration. Alongside having multiple identities, we will include permissions to avoid Coretime misuse. Integrating the multisig pallet is a clear solution to achieve such and will make sense once Corego has transitioned to a specialized chain with more flexibility to offer such features.
 
 **Team KPIs**
 
@@ -460,29 +460,30 @@ An example of a KPI for tracking core utilization:
 UtilizationIndex = capacity - |capacity * 0.8 - consumption|
 ```
 
-This KPI assumes that the optimal coretime usage is 80% of the purchased coretime. Any deviation from this will result in a reduced value for the utilization index.
+This KPI assumes that the optimal Coretime usage is 80% of the purchased Coretime. Any deviation from this will result in a reduced value for the utilization index.
 
 **Gamification**
 
-Offering rewards for optimizations by integrating an ‘optimization leaderboard’ will expose bad practices and in doing so encourage teams to be more computationally efficient.
+Offering rewards for optimizations by integrating an 'optimization leaderboard' will expose bad practices and, in doing so, encourage teams to be more computationally efficient.
 
-To achieve this we will use a specific KPI: (coretime utilized / coretime bought) to signify a team's computational efficiency. The leaderboard will list users in descending order based on this KPI.
+To achieve this, we will use a specific KPI (Coretime utilized / Coretime bought) to signify a team's computational efficiency. The leaderboard will list users in descending order based on this KPI.
 
 **Additional Alerts**
 
-We will implement these alerts using our own infrastructure which will allow us to export more data and integrate with more communication networks (Matrix, Whatsapp, Email). This commitment to having infrastructure assigned to alerts will specifically benefit us as we anticipate most notification services won’t support our chain early on.
+We will implement these alerts using our own infrastructure, allowing us to export more data and integrate with more communication networks (Matrix, WhatsApp, Email). This commitment to having infrastructure assigned to alerts will specifically benefit us as we anticipate that most notification services won’t support our chain early on.
 
 - **Expiring Region Warning**
-  Warning the user whenever one of his regions is close to expiry will remind him to potentially buy a new region for future assignments.
 
-  We look to integrate this alert by creating an unique event that emits when the region’s parameter ‘when’ exceeds ‘last_until’ and emit an event to reflect this. We will listen for this event and alert the user when it is emitted.
+	Warning the user, whenever one of his regions is close to expiry, will remind him to potentially buy a new region for future assignments.
+
+	We look to integrate this alert by creating a unique event that emits when the region’s parameter ‘when’ exceeds ‘last_until’ and emits an event to reflect this. We will listen for this event and alert the user when it is emitted.
 
 - **Wastage Reporting**
-  Notifying the user in case of utilizing a very small portion of the owned coretime may influence the user to reconsider their usage optimizations and potentially decide to sell part of their region on the market.
+	Notifying the user in case of utilizing a very small portion of the owned Coretime may influence the user to reconsider their usage optimizations and potentially decide to sell part of their region on the market.
 
-  We will gather averages of the user’s consumption over time and once data is sufficient we will detect scenarios where the consumption is a lot less than the all-time average. We will listen for this event and alert the user when it is emitted.
+	We will gather averages of the user’s consumption over time, and once data is sufficient, we will detect scenarios where the consumption is much less than the all-time average. We will listen for this event and alert the user when it is emitted.
 
 - **High Usage Reporting**
-  Alerting the user that a lot of his coretime is being utilized may influence him to buy more coretime on the market or stop certain tasks.
+	Alerting the user in case of utilizing a substantial portion of the owned Coretime may influence the user to buy more Coretime on the market or stop certain tasks.
 
-  In the same way as reporting wastage, we will gather averages of the user’s consumption over time and we’ll detect scenarios where the consumption is more than the all-time average and emit an event to reflect this. We will listen for this event and alert the user when it is emitted.
+	In the same way as reporting wastage, we will gather averages of the user’s consumption over time and, detect scenarios where the consumption is more than the all-time average and emit an event to reflect this. We will listen for this event and alert the user when it is emitted.
