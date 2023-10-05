@@ -73,7 +73,7 @@ This means that the total value of the coretime owned by the seller will go down
     - The contract calculates the price per one bit.
 2.  Another user decides to buy some coretime.
     - They are browsing the market, and they have decided they want to buy a specific region.
-    - The user will have to pay the price for the region; however, this won't be the price of the entire region. The price will be defined by `remaining_smallest_units` \* `price_per_unit`.
+    - The user will have to pay the price for the region; however, this won't be the price of the entire region. The price will be defined by `remaining_smallest_units * price_per_unit`.
 3.  The user pays the price, the seller receives the paid amount, and the buyer receives the region.
 
 In case a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to actually create a region that has the properties they desire.
