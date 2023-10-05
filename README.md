@@ -1,14 +1,14 @@
 # Corego
 
 > This document will be part of the terms and conditions of your agreement and therefore needs to contain all the required information about the project. Don't remove any of the mandatory parts presented in bold letters or as headlines (except for the title)! Lines starting with a `>` (such as this one) should be removed. Please use markdown instead of HTML (e.g. `![](image.png)` instead of `<img>`).
-> 
+>
 > See the [Grants Program Process](https://github.com/w3f/Grants-Program/#pencil-process) on how to submit a proposal.
 
 - **Team Name:** Legal name of your team (e.g. JsonCorp)
 - **Payment Address:** In the case of fiat payment, please share your bank account privately with grants@web3.foundation via your contact email (see below) and enter the date when you shared the information with us (e.g. Fiat 24.12.1971, 11:59) here. Otherwise, provide the Polkadot (for USDC & USDT) or Bitcoin payment address. Please also specify the currency. (e.g. 0x8920... (USDC))
 - **[Level](https://github.com/w3f/Grants-Program/tree/master#level_slider-levels):** 1, 2 or 3
 
-> ❗ *The combination of your GitHub account submitting the application and the payment address above will be your unique identifier during the program. Please keep them safe.*
+> ❗ _The combination of your GitHub account submitting the application and the payment address above will be your unique identifier during the program. Please keep them safe._
 
 ## Project Overview 📄
 
@@ -17,6 +17,7 @@
 - Corego is a marketplace and a set of tools for Coretime manipulation and data tracking, with the goal of making development on Polkadot faster, easier, more flexible, and, as an end result, cheaper.
 - Corego is a project that builds upon the ideas presented in the Agile Coretime RFC. The project will be developed under the assumption that the functionality described in the RFC will be implemented within the Polkadot/Kusama ecosystem.
   Given that the pallet containing all the logic presented in the RFC already exists, we will have the capability to undertake all the development outlined in this proposal.
+
 * Creating robust tooling and a market for Coretime can have a significant impact on the development that takes place on Polkadot. It will enable experiments and small personal projects to be deployed to Polkadot with minimal effort and cost.
 
 ### Project Details
@@ -26,7 +27,6 @@ The project essentially consists of four parts that will create a cohesive appli
 #### Coretime Abstractions
 
 Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, users must be allowed to perform actions on their Coretime using Corego.
-
 
 - **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that users can perform on their region.
 
@@ -130,7 +130,7 @@ To create a marketplace on a contracts parachain, we'll need an NFT region contr
 
 #### Data Dashboard
 
-Corego's Data Dashboard is a central hub for users, offering essential insights and real-time market data. With a user-friendly interface, it provides context, data from the Coretime chain, market information, and other useful insights, empowering users to make informed decisions, whether they are buying or selling Coretime or performing other operations.
+Corego's **Data Dashboard** is a central hub for users, offering essential insights and real-time market data. With a user-friendly interface, it provides context, data from the Coretime chain, market information, and other useful insights, empowering users to make informed decisions, whether they are buying or selling Coretime or performing other operations.
 
 We have divided the data dashboard into four sections.
 
@@ -140,33 +140,35 @@ Displaying configuration constants to users is highly beneficial, giving them a 
 For instance, by tracking daily, weekly, or other periodic purchases and sales, users can better understand Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the 1inch protocol.
 
 Data shown in the constants section:
--   Interlude Period Length: Time during which the bulk sale is not active.   
--   Leadin Period Length: Time during which the sale price varies.
--   Region length: The length of the regions available for purchase during the upcoming bulk sale.
--   Cores Limit: The maximum number of cores that can be sold.
--   Renewal Price Increase: The maximum price increase of a renewable region.
+
+- Interlude Period Length: Time during which the bulk sale is not active.
+- Leadin Period Length: Time during which the sale price varies.
+- Region Length: The length of the regions available for purchase during the upcoming bulk sale.
+- Cores Limit: The maximum number of cores that can be sold.
+- Renewal Price Increase: The maximum price increase of a renewable region.
 
 **2. Coretime Chain**
 While we don't directly oversee the operations of the Coretime chain, indexing data from the primary market can offer significant insights.
 
 Data
--   Reserved Cores: Cores utilized by system parachains.
--   Renewed Cores: Cores renewed by non-system parachains.
--   Leases: Number of leases.
--   Current Bulk Sale Period: Ongoing period of bulk sale.
--   Bulk Sale Offerings: Number of cores offered in the bulk sale.
--   Bulk Sale Transactions: Number of cores sold.
--   Unassigned Regions: Total number of regions without assignments.
--   Assigned Regions: Total number of regions with assignments.
--   Region Status: Number of finalized and provisional regions.
--   Leadin Period Price Trend: Continuous decrease in bulk Coretime price.
--   Post-Leadin Coretime Price: Price after the leadin period.
--   Core Utilization: Percentage of utilized cores (with a graph for time-based visualization).
--   Region Utilization: Percentage of utilized regions (with a graph for time-based visualization).
--   Instantaneous Pool Data
--   Contributor Input: Circle graph showcasing contributor-provided and system-provided bits, akin to the income graph on the dotreasury website.
--   Coretime Purchases: Volume purchased during a specific time frame.
--   Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website.
+
+- Reserved Cores: Cores utilized by system parachains.
+- Renewed Cores: Cores renewed by non-system parachains.
+- Leases: Number of leases.
+- Current Bulk Sale Period: Ongoing period of bulk sale.
+- Bulk Sale Offerings: Number of cores offered in the bulk sale.
+- Bulk Sale Transactions: Number of cores sold.
+- Unassigned Regions: Total number of regions without assignments.
+- Assigned Regions: Total number of regions with assignments.
+- Region Status: Number of finalized and provisional regions.
+- Leadin Period Price Trend: Continuous decrease in bulk coretime price.
+- Post-Leadin Coretime Price: Price after the leadin period.
+- Core Utilization: Percentage of utilized cores (with a graph for time-based visualization).
+- Region Utilization: Percentage of utilized regions (with a graph for time-based visualization).
+- Instantaneous Pool Data
+- Contributor Input: Circle graph showcasing contributor-provided and system-provided bits, akin to the income graph on the dotreasury website.
+- Coretime Purchases: Volume purchased during a specific time frame.
+- Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website.
 
 **3. Market**
 As the secondary market expands with increasing user transitions, it becomes crucial to index pertinent data.
@@ -174,27 +176,29 @@ As the secondary market expands with increasing user transitions, it becomes cru
 For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the **1inch** protocol.
 
 Data
--   Regions on sale (for a specified period)
--   Monthly Regions Sold (with future potentials for a ratio - (sold/on sale)).
--   Purchases: Number for a specified period (day, week, etc.).
--   Market Dominance: Share of secondary market.
--   Trading Volume: For a specified period in USD and DOT.
--   Total Transactions: Made between unique active wallets and contracts.
--   Total Users: Registered users with at least one market transaction.
--   Monthly Active Users: Registered users with at least one monthly transaction.
--   Average Price Per Timeslice: With a graph depicting data over time in USD and DOT.
--   Regions flowing in and out of the parachain where Corego is deployed.
+
+- Regions on sale (for a specified period)
+- Monthly Regions Sold (with future potentials for a ratio - (sold/on sale)).
+- Purchases: Number for a specified period (day, week, etc.).
+- Market Dominance: Share of secondary market.
+- Trading Volume: For a specified period in USD and DOT.
+- Total Transactions: Made between unique active wallets and contracts.
+- Total Users: Registered users with at least one market transaction.
+- Monthly Active Users: Registered users with at least one monthly transaction.
+- Average Price Per Timeslice: With a graph depicting data over time in USD and DOT.
+- Regions flowing in and out of the parachain where Corego is deployed.
 
 **4. Tooling**
 
 As outlined earlier, users have an array of tools at their disposal to modify their regions. Compiling data on these modifications, such as the number of interlaced or partitioned regions at any given moment, can offer robust insights into market activity and specialization.
 
 Data:
-*The number of occurrences during a specified time period:*
-1.  Partitioning
-2.  Interlacing
-3.  Assignments
-4.  Transfers
+_The number of occurrences during a specified time period:_
+
+- Partitioning
+- Interlacing
+- Assignments
+- Transfers
 
 #### Developer Console
 
@@ -215,18 +219,19 @@ Visual description:
 Similarly to how we showcase the regions in the base design, we will list all the regions assigned to a specific task. However, we won’t show all the data here that is part of the base design since it isn’t relevant.
 
 We will showcase the following metadata on each card item:
-1.  Region name
-2.  Task name
-3.  Assigned at (block number or date)
-4.  Finality
+
+- Region name
+- Task name
+- Assigned at (block number or date)
+- Finality
 
 Additional visuals:
 
-1.  A graph showcasing the utilization of Coretime by the given task. The graph should contain the maximum Coretime that can be utilized by the given region and the actual consumption.
+- A graph showcasing the utilization of coretime by the given task. The graph should contain the maximum coretime that can be utilized by the given region and the actual consumption.
 
-2.  The timeline of the region. This will show all the operations that were done on the region to achieve its current form.
+- The timeline of the region. This will show all the operations that were done on the region to achieve its current form.
 
-3.  The UI will indicate the upcoming task within this region if there is one scheduled. It will show the task name and the start time.
+- The UI will indicate the upcoming task within this region if there is one scheduled. It will show the task name and the start time.
 
   <p align="center">
     <img width="600" src="https://gcdnb.pbrd.co/images/l5W9tE6szrNf.png?o=1"/>
@@ -236,25 +241,26 @@ Additional visuals:
 
 The list of tasks the user published to the relay chain. We anticipate this to help the user to keep track of all their tasks and upload any new tasks before assignment to a region.
 
-The UI will list all tasks the user uploaded to the relay chain. It will also contain the following set of options:
-1.  Upload task
-2.  Rename task
+The UI will list all of the tasks that the user uploaded to the relay chain. It will also contain the following set of options:
 
+- Upload task
+- Rename task
 **3. Costs**
 
 The price the user paid per region and the total cost of all the regions will provide users with a view of Polkadot spending at a glance.
 It is useful to be aware of the financial cost of the regions to make future optimizations.
 
 TODO: use image instead
-*Visual description:*
+_Visual description:_
 Similarly to how we showcase the regions in the regions dashboard design we will list all of the regions. However, we will only show the cost related data here including:
--   Price paid for the entire region
--   Price of the region defined per timeslice
--   The current average price per timeslice for internal comparisons
+
+- Price paid for the entire region
+- Price of the region defined per timeslice
+- The current average price per timeslice for internal comparisons
 
 **Alerts**
 
-We will implement these alerts using web3alert until we move onto our own infrastructure for more advanced alerts.
+We will implement these alerts using **web3alert** until we move onto our own infrastructure for more advanced alerts.
 
 **1. Region Sold**
 When a user's listed region is sold, they will be notified. This ensures that the user is promptly informed of the successful sale of their region.
@@ -308,6 +314,7 @@ Github organization:
 https://github.com/CoregoLabs
 
 Github profiles of team mebers:
+
 - https://github.com/Szegoo
 - https://github.com/kingjulio8238
 
@@ -320,95 +327,93 @@ Github profiles of team mebers:
 
 ### [Overview](https://github.com/w3f/Grants-Program/blob/master/applications/application-template.md#overview-1)
 
--   **Total Estimated Duration:**  TBD
--   **FTE:**  3.5 (3 + 0.5 designer)
--   **Total Costs:**  TBD
+- **Total Estimated Duration:** TBD
+- **FTE:** 3.5 (3 + 0.5 designer)
+- **Total Costs:** TBD
 
 ### Milestone 1 - Coretime Abstractions
 
--   **Estimated duration:**  1 month
--   **FTE:**  3.5
--   **Costs:**  TBD
+- **Estimated duration:** 1 month
+- **FTE:** 3.5
+- **Costs:** TBD
 
-| Number | Deliverable | Specification |
-| -----: | ----------- | ------------- |
-| **0a.** | License | MIT (?) |
-| **0b.** | Documentation | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
-| **0c.** | Testing and Testing Guide | All interactions with the Coretime parachain will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will be running a local zombienet network to simulate the existance of a Coretime parachain. |
-| **0d.** | Docker | We will provide a Dockerfile that will set up the and run the Corego Coretime abstractions UI. |
-| 0e. | Article | TODO |
-| 1. | Design finalization | We will complete the design for the Coretime Abstraction UI, and based on that, we will proceed to develop the frontend code. |
-| 2. | Mock Coretime Parachain runtime  | We will establish a parachain dedicated to testing the Coretime abstractions. Essentially, this involves creating a parachain that implements the `broker pallet`. We will use this runtime in our zombienet network. This will be used in the upcoming milestones as well. |
-| 3. | Coretime Abstraction UI | We will implement all the sections and components described in the *Coretime Abstractions* section above. To summarize, this will consist of the following components: region dashboard, partitioning UI, interlacing UI, naming regions & tasks components, assignment UI and transfer UI |
-
+|  Number | Deliverable                     | Specification                                                                                                                                                                                                                                                                              |
+| ------: | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **0a.** | License                         | MIT (?)                                                                                                                                                                                                                                                                                    |
+| **0b.** | Documentation                   | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project.                                                                                       |
+| **0c.** | Testing and Testing Guide       | All interactions with the Coretime parachain will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will be running a local zombienet network to simulate the existance of a Coretime parachain.                                     |
+| **0d.** | Docker                          | We will provide a Dockerfile that will set up the and run the Corego Coretime abstractions UI.                                                                                                                                                                                             |
+|     0e. | Article                         | TODO                                                                                                                                                                                                                                                                                       |
+|      1. | Design finalization             | We will complete the design for the Coretime Abstraction UI, and based on that, we will proceed to develop the frontend code.                                                                                                                                                              |
+|      2. | Mock Coretime Parachain runtime | We will establish a parachain dedicated to testing the Coretime abstractions. Essentially, this involves creating a parachain that implements the `broker pallet`. We will use this runtime in our zombienet network. This will be used in the upcoming milestones as well.                |
+|      3. | Coretime Abstraction UI         | We will implement all the sections and components described in the _Coretime Abstractions_ section above. To summarize, this will consist of the following components: region dashboard, partitioning UI, interlacing UI, naming regions & tasks components, assignment UI and transfer UI |
 
 ### Milestone 2 - Cross Chain Regions
 
--   **Estimated duration:**  1 month
--   **FTE:**  3.5
--   **Costs:**  TBD
+- **Estimated duration:** 1 month
+- **FTE:** 3.5
+- **Costs:** TBD
 
-| Number | Deliverable | Specification |
-| -----: | ----------- | ------------- |
-| **0a.** | License | MIT (?) |
-| **0b.** | Documentation | The ink! smart contract will be well written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
-| **0c.** | Testing and Testing Guide |The ink! smart contract will undergo thorough testing, including e2e testing with a simulated zombienet network, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. |
-| **0d.** | Docker | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI. |
-| 0e. | Article | TODO |
-| 1. | Region NFT contract | As described in the previous sections, we will create an ink! smart contract that will be representing regions on the contracts parachain where we choose to deploy Corego. |
-| 2. | Finalize cross-chain UI Design | We will finalize the design for the cross-chain region transfer UI. Following this, we will proceed to develop the frontend code. |
-| 3. | Cross-chain Transfer UI | We will create the UI for transferring the region NFTs from the Coretime parachain to the contracts parachain and vice versa. |
-
+|  Number | Deliverable                    | Specification                                                                                                                                                                                                                                                                 |
+| ------: | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **0a.** | License                        | MIT (?)                                                                                                                                                                                                                                                                       |
+| **0b.** | Documentation                  | The ink! smart contract will be well written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project.        |
+| **0c.** | Testing and Testing Guide      | The ink! smart contract will undergo thorough testing, including e2e testing with a simulated zombienet network, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. |
+| **0d.** | Docker                         | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI.                                                                 |
+|     0e. | Article                        | TODO                                                                                                                                                                                                                                                                          |
+|      1. | Region NFT contract            | As described in the previous sections, we will create an ink! smart contract that will be representing regions on the contracts parachain where we choose to deploy Corego.                                                                                                   |
+|      2. | Finalize cross-chain UI Design | We will finalize the design for the cross-chain region transfer UI. Following this, we will proceed to develop the frontend code.                                                                                                                                             |
+|      3. | Cross-chain Transfer UI        | We will create the UI for transferring the region NFTs from the Coretime parachain to the contracts parachain and vice versa.                                                                                                                                                 |
 
 ### Milestone 3 - Coretime Market
 
--   **Estimated duration:**  2 months
--   **FTE:**  3.5
--   **Costs:**  TBD
+- **Estimated duration:** 2 months
+- **FTE:** 3.5
+- **Costs:** TBD
 
-| Number | Deliverable | Specification |
-| -----: | ----------- | ------------- |
-| **0a.** | License | MIT (?) |
-| **0b.** | Documentation | The ink! smart contracts will be well written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
-| **0c.** | Testing and Testing Guide | The ink! smart contracts will undergo thorough testing, including ink! integration and end-to-end tests, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. |
-| **0d.** | Docker | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI. |
-| 0e. | Article | TODO |
-| 1. | Coretime Market contract | We will develop the Coretime market as an ink! smart contract, as described above in the *Secondary Market* section. |
-| 2. | Finalize market UI designs | We will finalize the design for the Coretime market UI. Following this, we will proceed to develop the frontend code. |
-| 3. | Coretime Market UI | We will create the UI for interacting with all the functionality exposed by the Coretime market contract. The UI will also offer an intuitive design that allows the buyer to describe their desired region. |
+|  Number | Deliverable                | Specification                                                                                                                                                                                                                                                           |
+| ------: | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **0a.** | License                    | MIT (?)                                                                                                                                                                                                                                                                 |
+| **0b.** | Documentation              | The ink! smart contracts will be well written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
+| **0c.** | Testing and Testing Guide  | The ink! smart contracts will undergo thorough testing, including ink! integration and end-to-end tests, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI.   |
+| **0d.** | Docker                     | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI.                                                           |
+|     0e. | Article                    | TODO                                                                                                                                                                                                                                                                    |
+|      1. | Coretime Market contract   | We will develop the Coretime market as an ink! smart contract, as described above in the _Secondary Market_ section.                                                                                                                                                    |
+|      2. | Finalize market UI designs | We will finalize the design for the Coretime market UI. Following this, we will proceed to develop the frontend code.                                                                                                                                                   |
+|      3. | Coretime Market UI         | We will create the UI for interacting with all the functionality exposed by the Coretime market contract. The UI will also offer an intuitive design that allows the buyer to describe their desired region.                                                            |
 
 ### Milestone 4 - Data Dashboard
 
--   **Estimated duration:**  1 month
--   **FTE:**  3.5
--   **Costs:**  TBD
+- **Estimated duration:** 1 month
+- **FTE:** 3.5
+- **Costs:** TBD
 
-| Number | Deliverable | Specification |
-| -----: | ----------- | ------------- |
-| **0a.** | License | MIT (?) |
-| **0b.** | Documentation | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
-| **0c.** | Testing and Testing Guide | The data dashboard doesn't contain any critical logic; nevertheless, we will ensure that all the data displayed on the dashboard is accurate. |
-| **0d.** | Docker | We will provide Dockerfiles for the ink! smart contracts that that will configure and run the Corego UI. |
-| 0e. | Article | TODO |
-| 1. | Finalize data dashboard UI designs | We will finalize the design for the data dashboard UI. Following this, we will proceed to develop the frontend code. |
-| 2. | Data Dashboard UI | We will create the data dashboard UI, which will include all the sections described in the project details section of the proposal. |
+|  Number | Deliverable                        | Specification                                                                                                                                                                                        |
+| ------: | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **0a.** | License                            | MIT (?)                                                                                                                                                                                              |
+| **0b.** | Documentation                      | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
+| **0c.** | Testing and Testing Guide          | The data dashboard doesn't contain any critical logic; nevertheless, we will ensure that all the data displayed on the dashboard is accurate.                                                        |
+| **0d.** | Docker                             | We will provide Dockerfiles for the ink! smart contracts that that will configure and run the Corego UI.                                                                                             |
+|     0e. | Article                            | TODO                                                                                                                                                                                                 |
+|      1. | Finalize data dashboard UI designs | We will finalize the design for the data dashboard UI. Following this, we will proceed to develop the frontend code.                                                                                 |
+|      2. | Data Dashboard UI                  | We will create the data dashboard UI, which will include all the sections described in the project details section of the proposal.                                                                  |
 
 ### Milestone 5 - Developer Console
 
--   **Estimated duration:**  1.5 month
--   **FTE:**  3.5
--   **Costs:**  TBD
+- **Estimated duration:** 1.5 month
+- **FTE:** 3.5
+- **Costs:** TBD
 
-| Number | Deliverable | Specification |
-| -----: | ----------- | ------------- |
-| **0a.** | License | MIT (?) |
-| **0b.** | Documentation | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
-| **0c.** | Testing and Testing Guide | All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will additionally ensure that the alerts are working correctly. |
-| **0d.** | Docker | We will provide Dockerfiles for the ink! smart contracts that that will configure and run the Corego UI. |
-| 0e. | Article | TODO |
-| 1. | Developer Console design | We will finalize the design for the developer console UI. Following this, we will proceed to develop the frontend code. |
-| 2. | Coretime Managment | We will implement all the components mentioned in the *Coretime management* section above. |
-| 3. | Coretime Managment | We will implement all the alerts mentioned in the "Alerts" section above using the web3alert SDK. |
+|  Number | Deliverable               | Specification                                                                                                                                                                                        |
+| ------: | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **0a.** | License                   | MIT (?)                                                                                                                                                                                              |
+| **0b.** | Documentation             | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
+| **0c.** | Testing and Testing Guide | All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will additionally ensure that the alerts are working correctly.     |
+| **0d.** | Docker                    | We will provide Dockerfiles for the ink! smart contracts that that will configure and run the Corego UI.                                                                                             |
+|     0e. | Article                   | TODO                                                                                                                                                                                                 |
+|      1. | Developer Console design  | We will finalize the design for the developer console UI. Following this, we will proceed to develop the frontend code.                                                                              |
+|      2. | Coretime Managment        | We will implement all the components mentioned in the _Coretime management_ section above.                                                                                                           |
+|      3. | Coretime Managment        | We will implement all the alerts mentioned in the "Alerts" section above using the web3alert SDK.                                                                                                    |
 
 ## Future Plans
 
@@ -426,6 +431,7 @@ The following sections contain the plans and ideas we currently have, and this l
 With the emergence of shared builders, which aggregate and batch work items into work packages for attestations, a growing value add exists to offer teams structured, indexed data on these builders. Such data can help teams discern which cores are currently in use, identify cores nearing their capacity, understand the average allocation required for builders to collect and refine, and gain insights into other vital metrics.
 
 Data of the new section:
+
 1.  Active builders on last relay chain block
 2.  Volume of work items processed by the shared builder group on the last relay chain block
 3.  Categories of work classes processed (Actor, Parachain…)  
@@ -449,6 +455,7 @@ Including the functionality to add multiple team members to the console promotes
 Offering the ability for teams to set cost and utilization KPIs will allow them to set goals to Improve performance and perform analysis to rectify mistakes.
 
 An example of a KPI for tracking core utilization:
+
 ```
 UtilizationIndex = capacity - |capacity * 0.8 - consumption|
 ```
@@ -466,6 +473,7 @@ To achieve this, we will use a specific KPI (Coretime utilized / Coretime bought
 We will implement these alerts using our own infrastructure, allowing us to export more data and integrate with more communication networks (Matrix, WhatsApp, Email). This commitment to having infrastructure assigned to alerts will specifically benefit us as we anticipate that most notification services won’t support our chain early on.
 
 - **Expiring Region Warning**
+
 	Warning the user, whenever one of his regions is close to expiry, will remind him to potentially buy a new region for future assignments.
 
 	We look to integrate this alert by creating a unique event that emits when the region’s parameter ‘when’ exceeds ‘last_until’ and emits an event to reflect this. We will listen for this event and alert the user when it is emitted.
