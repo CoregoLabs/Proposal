@@ -77,7 +77,8 @@ This bit-based valuation means that the total value of the Coretime owned by the
 	-   The user will have to pay the price for the region; however, this won't be the price of the entire region. The price will be defined by `remaining_smallest_units * price_per_unit`.
 3.  The user pays the price, the seller receives the paid amount, and the buyer receives the region.
 
-If a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to create a region with the properties they desire. The contract will be able to follow the buyer's steps and create a region that the buyer wants to buy. The contract will also calculate the amount that needs to be paid for that and charge the buyer the appropriate amount. After all these steps, the seller will receive their tokens, and the buyer will obtain their desired Coretime. 
+If a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to create a region with the properties they desire. The contract will be able to follow the buyer's steps and create a region that the buyer wants to buy. 
+The contract will also calculate the amount that needs to be paid for that and charge the buyer the appropriate amount. After all these steps, the seller will receive their tokens, and the buyer will obtain their desired Coretime. 
 We refer to this feature as **Region Derivation**. It will give buyers more options when purchasing Coretime, making it easier to meet their specific needs.
 
 TODO: Should we provide an example here from the market doc?
