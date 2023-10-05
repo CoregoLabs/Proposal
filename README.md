@@ -158,7 +158,7 @@ Data
 -   Unassigned Regions: Total number of regions without assignments.
 -   Assigned Regions: Total number of regions with assignments.
 -   Region Status: Number of finalized and provisional regions.
--   Leadin Period Price Trend: Continuous decrease in bulk coretime price.
+-   Leadin Period Price Trend: Continuous decrease in bulk Coretime price.
 -   Post-Leadin Coretime Price: Price after the leadin period.
 -   Core Utilization: Percentage of utilized cores (with a graph for time-based visualization).
 -   Region Utilization: Percentage of utilized regions (with a graph for time-based visualization).
@@ -170,7 +170,7 @@ Data
 **3. Market**
 As the secondary market expands with increasing user transitions, it becomes crucial to index pertinent data.
 
-For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of coretime's price trends. Moreover, real-time indexing of coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple coretime markets akin to the 1inch protocol.
+For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the **1inch** protocol.
 
 Data
 -   Regions on sale (for a specified period)
@@ -197,11 +197,11 @@ Data:
 
 #### Developer Console
 
-The developer console is a pivotal tool, aiding teams in navigating the coretime market and managing their owned regions. Corego stands out as the only cloud management platform tailored exclusively for the Polkadot ecosystem. It mirrors the capabilities of centralized cloud computing management platforms; it will provide valuable data and reporting, inform users via alerts, and eventually offer recommendations based on machine learning models to improve resource allocation. Ultimately, the developer console’s key focus is to optimize teams computing spendings.
+The developer console is a pivotal tool, aiding teams in navigating the coretime market and managing their owned regions. Corego stands out as the only cloud management platform tailored exclusively for the Polkadot ecosystem. It mirrors the capabilities of centralized cloud computing management platforms; it will provide valuable data and reporting, inform users via alerts, and eventually offer recommendations based on machine learning models to improve resource allocation. Ultimately, the developer console's key focus is to optimize teams' computing spending.
 
 We have split the developer console into two sections: Coretime management and alerts.
 
-**Coretime Managment**
+**Coretime Management**
 
 This section is further subdivided into three subsequent sections, which are described in detail below.
 
@@ -211,7 +211,7 @@ Observing the workload for each region will help users to make well-informed dec
 TODO: add design image here
 Visual description:
 
-Similarly to how we showcase the regions in the base design we will list all of the regions that are assigned to a specific task. However, we won’t show all the data here that is part of the base design since it isn’t really relevant.
+Similarly to how we showcase the regions in the base design, we will list all the regions assigned to a specific task. However, we won’t show all the data here that is part of the base design since it isn’t relevant.
 
 We will showcase the following metadata on each card item:
 1.  Region name
@@ -233,15 +233,15 @@ Additional visuals:
 
 **2. Tasks**
 
-The list of tasks the user published to the relay chain. We anticipate this to help the user to keep track of all their tasks and upload any new tasks before assignment to a region. 
+The list of tasks the user published to the relay chain. We anticipate this to help the user to keep track of all their tasks and upload any new tasks before assignment to a region.
 
-The UI will list all of the tasks that the user uploaded to the relay chain. It will also contain the following set of options:
+The UI will list all tasks the user uploaded to the relay chain. It will also contain the following set of options:
 1.  Upload task
 2.  Rename task
 
 **3. Costs**
 
-The price the user paid per region and the total cost of all the regions will provide users a view of Polkadot spending at a glance.
+The price the user paid per region and the total cost of all the regions will provide users with a view of Polkadot spending at a glance.
 It is useful to be aware of the financial cost of the regions to make future optimizations.
 
 TODO: use image instead
@@ -269,13 +269,13 @@ Users will be informed about the number of cores available for the next bulk sal
 
 **Integrations**
 
-Being able to export consumption and utilization reports and share general analysis to the most popular communication networks (Telegram , Discord and Slack) provides teams the flexibility needed to collaborate effectively and perform tasks such as accounting.
+Being able to export consumption and utilization reports and share general analysis to the most popular communication networks (Telegram, Discord, and Slack) provides teams the flexibility needed to collaborate effectively and perform tasks such as accounting.
 
 ### Ecosystem Fit
 
 Corego stands out as a pivotal player within the ecosystem, strategically built atop the coretime-chain. Corego is committed to optimizing resource allocations, and to do so, we'll leverage the chain's unique functionalities to offer advanced abstractions, a coretime-focused indexer, a secondary market, and a developer console. 
-This multifaceted approach caters to teams across the Polkadot and Kusama ecosystems. It provides them with the tools to seamlessly interact with the coretime-chain, gain deep insights into coretime markets, trade execution cores effectively and react based on usage details. 
-As integrating the novel coretime concept into Polkadot unfolds, we remain vigilant, anticipating potential competitors in this emerging space.
+This multifaceted approach caters to teams across the Polkadot and Kusama ecosystems. It provides them with the tools to seamlessly interact with the Coretime chain, gain deep insights into Coretime markets, trade execution cores effectively, and react based on usage details. 
+As integrating the novel Coretime concept into Polkadot unfolds, we remain vigilant, anticipating potential competitors in this emerging space.
 
 ## Team :busts_in_silhouette:
 
@@ -411,9 +411,9 @@ Github profiles of team mebers:
 
 ## Future Plans
 
-By completing all the milestones, we will have all the components of Corego in place. Our plan is for future work to be built upon these components.
+By completing all the milestones, we will have all the components of Corego in place. Our plan for future work is to build upon these components.
 
-The following sections contain the plans and ideas we currently have, and it is highly likely that this list will expand as we work on the milestones outlined in this document.
+The following sections contain the plans and ideas we currently have, and this list will likely expand as we work on the milestones outlined in this document.
 
 #### Coretime Market
 
@@ -441,7 +441,7 @@ As the advisor model evolves and gathers more data, it will adeptly discern the 
 
 **Identity and Access Management**
 
-Including the functionality to add multiple team members to the console promotes team collaboration. Alongside having multiple identities, we will include permissions to avoid coretime misuse. The integration of the multisig pallet is a clear solution to achieve such and will make sense once Corego has transitioned to a specialized chain with more flexibility to offer such features.
+Including the functionality to add multiple team members to the console promotes team collaboration. Alongside having multiple identities, we will include permissions to avoid coretime misuse. Integrating the multisig pallet is a clear solution to achieve such and will make sense once Corego has transitioned to a specialized chain with more flexibility to offer such features.
 
 **Team KPIs**
 
@@ -452,29 +452,29 @@ An example of a KPI for tracking core utilization:
 UtilizationIndex = capacity - |capacity * 0.8 - consumption|
 ```
 
-This KPI assumes that the optimal coretime usage is 80% of the purchased coretime. Any deviation from this will result in a reduced value for the utilization index.
+This KPI assumes that the optimal Coretime usage is 80% of the purchased Coretime. Any deviation from this will result in a reduced value for the utilization index.
 
 **Gamification**
 
-Offering rewards for optimizations by integrating an ‘optimization leaderboard’ will expose bad practices and in doing so encourage teams to be more computationally efficient.
+Offering rewards for optimizations by integrating an 'optimization leaderboard' will expose bad practices and, in doing so, encourage teams to be more computationally efficient.
 
-To achieve this we will use a specific KPI: (coretime utilized / coretime bought) to signify a team's computational efficiency. The leaderboard will list users in descending order based on this KPI.
+To achieve this, we will use a specific KPI (Coretime utilized / Coretime bought) to signify a team's computational efficiency. The leaderboard will list users in descending order based on this KPI.
 
 **Additional Alerts**
 
-We will implement these alerts using our own infrastructure which will allow us to export more data and integrate with more communication networks (Matrix, Whatsapp, Email). This commitment to having infrastructure assigned to alerts will specifically benefit us as we anticipate most notification services won’t support our chain early on.
+We will implement these alerts using our own infrastructure, allowing us to export more data and integrate with more communication networks (Matrix, WhatsApp, Email). This commitment to having infrastructure assigned to alerts will specifically benefit us as we anticipate that most notification services won’t support our chain early on.
 
 - **Expiring Region Warning**
-	Warning the user whenever one of his regions is close to expiry will remind him to potentially buy a new region for future assignments.
+	Warning the user, whenever one of his regions is close to expiry, will remind him to potentially buy a new region for future assignments.
 
-	We look to integrate this alert by creating an unique event that emits when the region’s parameter ‘when’ exceeds ‘last_until’ and emit an event to reflect this. We will listen for this event and alert the user when it is emitted.
+	We look to integrate this alert by creating a unique event that emits when the region’s parameter ‘when’ exceeds ‘last_until’ and emits an event to reflect this. We will listen for this event and alert the user when it is emitted.
 
 - **Wastage Reporting**
 	Notifying the user in case of utilizing a very small portion of the owned coretime may influence the user to reconsider their usage optimizations and potentially decide to sell part of their region on the market.
 
-	We will gather averages of the user’s consumption over time and once data is sufficient we will detect scenarios where the consumption is a lot less than the all-time average. We will listen for this event and alert the user when it is emitted.
+	We will gather averages of the user’s consumption over time, and once data is sufficient, we will detect scenarios where the consumption is much less than the all-time average. We will listen for this event and alert the user when it is emitted.
 
 - **High Usage Reporting**
-	Alerting the user that a lot of his coretime is being utilized may influence him to buy more coretime on the market or stop certain tasks.
+	Alerting the user in case of utilizing a substantial portion of the owned Coretime may influence the user to buy more Coretime on the market or stop certain tasks.
 
-	In the same way as reporting wastage, we will gather averages of the user’s consumption over time and we’ll detect scenarios where the consumption is more than the all-time average and emit an event to reflect this. We will listen for this event and alert the user when it is emitted.
+	In the same way as reporting wastage, we will gather averages of the user’s consumption over time and, detect scenarios where the consumption is more than the all-time average and emit an event to reflect this. We will listen for this event and alert the user when it is emitted.
