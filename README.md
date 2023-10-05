@@ -61,7 +61,7 @@ Coretime is a resource that goes to waste if not utilized during its intended ti
 
 After buying Coretime during the bulk period, one may realize that the purchased Coretime is either too much or too little for the intended use. The secondary market assists these individuals and teams in rectifying their mistakes by enabling them to sell or buy more Coretime.
 
-Coretime can be partitioned and interlaced, meaning most of the coretime on sale will hardly be the same. For this reason, we are going to utilise the order book model.
+Coretime can be partitioned and interlaced, meaning most of the Coretime on sale will hardly be the same. For this reason, we are going to utilise the order book model.
 
 The seller will need to specify the price for the entire region, and based on that, the contract will calculate the price of one bit, which is equivalent to 1/80th of the price of the entire region.
 
@@ -84,7 +84,7 @@ We refer to this feature as **Region Derivation**. It will give buyers more opti
 TODO: Should we provide an example here from the market doc?
 
 **Defining the price of Coretime**
-The price of coretime will be highly influenced by supply and demand. Since we are constructing a market with an NFT order book model, users will have the authority to establish the price of the coretime they intend to sell.
+The price of Coretime will be highly influenced by supply and demand. Since we are constructing a market with an NFT order book model, users will have the authority to establish the price of the Coretime they intend to sell.
 
 Depending on whether the seller owns an entire core, only partitioned parts, or has it interlaced, the selling price of the Coretime will be affected.
 
@@ -137,7 +137,7 @@ We have divided the data dashboard into four sections.
 **1. Constants**
 Displaying configuration constants to users is highly beneficial, giving them a more comprehensive macro understanding of the system.
 
-For instance, by tracking daily, weekly, or other periodic purchases and sales, users can better understand coretime's price trends. Moreover, real-time indexing of coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple coretime markets akin to the 1inch protocol.
+For instance, by tracking daily, weekly, or other periodic purchases and sales, users can better understand Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the 1inch protocol.
 
 Data shown in the constants section:
 -   Interlude Period Length: Time during which the bulk sale is not active.   
@@ -147,7 +147,7 @@ Data shown in the constants section:
 -   Renewal Price Increase: The maximum price increase of a renewable region.
 
 **2. Coretime Chain**
-While we don't directly oversee the operations of the coretime chain, indexing data from the primary market can offer significant insights.
+While we don't directly oversee the operations of the Coretime chain, indexing data from the primary market can offer significant insights.
 
 Data
 -   Reserved Cores: Cores utilized by system parachains.
@@ -198,7 +198,7 @@ Data:
 
 #### Developer Console
 
-The developer console is a pivotal tool, aiding teams in navigating the coretime market and managing their owned regions. Corego stands out as the only cloud management platform tailored exclusively for the Polkadot ecosystem. It mirrors the capabilities of centralized cloud computing management platforms; it will provide valuable data and reporting, inform users via alerts, and eventually offer recommendations based on machine learning models to improve resource allocation. Ultimately, the developer console's key focus is to optimize teams' computing spending.
+The developer console is a pivotal tool, aiding teams in navigating the Coretime market and managing their owned regions. Corego stands out as the only cloud management platform tailored exclusively for the Polkadot ecosystem. It mirrors the capabilities of centralized cloud computing management platforms; it will provide valuable data and reporting, inform users via alerts, and eventually offer recommendations based on machine learning models to improve resource allocation. Ultimately, the developer console's key focus is to optimize teams' computing spending.
 
 We have split the developer console into two sections: Coretime management and alerts.
 
@@ -222,7 +222,7 @@ We will showcase the following metadata on each card item:
 
 Additional visuals:
 
-1.  A graph showcasing the utilization of coretime by the given task. The graph should contain the maximum coretime that can be utilized by the given region and the actual consumption.
+1.  A graph showcasing the utilization of Coretime by the given task. The graph should contain the maximum Coretime that can be utilized by the given region and the actual consumption.
 
 2.  The timeline of the region. This will show all the operations that were done on the region to achieve its current form.
 
@@ -263,7 +263,7 @@ When a user's listed region is sold, they will be notified. This ensures that th
 When a scheduled task becomes the current workload on a user's region, the user will be alerted. This is crucial to update users on the new tasks running in their region.
 
 **3. ICP Payout Available**
-Users will be notified when a payout is available for their coretime contribution to the instantaneous pool, which serves as a reminder to claim their due payouts.
+Users will be notified when a payout is available for their Coretime contribution to the instantaneous pool, which serves as a reminder to claim their due payouts.
 
 **4. Available Cores**
 Users will be informed about the number of cores available for the next bulk sale. This alert aims to help users prepare for the upcoming sale, especially if there are changes in core limits.
@@ -274,7 +274,7 @@ Being able to export consumption and utilization reports and share general analy
 
 ### Ecosystem Fit
 
-Corego stands out as a pivotal player within the ecosystem, strategically built atop the coretime-chain. Corego is committed to optimizing resource allocations, and to do so, we'll leverage the chain's unique functionalities to offer advanced abstractions, a coretime-focused indexer, a secondary market, and a developer console. 
+Corego stands out as a pivotal player within the ecosystem, strategically built atop the Coretime-chain. Corego is committed to optimizing resource allocations, and to do so, we'll leverage the chain's unique functionalities to offer advanced abstractions, a Coretime-focused indexer, a secondary market, and a developer console. 
 This multifaceted approach caters to teams across the Polkadot and Kusama ecosystems. It provides them with the tools to seamlessly interact with the Coretime chain, gain deep insights into Coretime markets, trade execution cores effectively, and react based on usage details. 
 As integrating the novel Coretime concept into Polkadot unfolds, we remain vigilant, anticipating potential competitors in this emerging space.
 
@@ -429,20 +429,20 @@ Data of the new section:
 1.  Active builders on last relay chain block
 2.  Volume of work items processed by the shared builder group on the last relay chain block
 3.  Categories of work classes processed (Actor, Parachain…)  
-4.  Analysis of builder's coretime consumption.
+4.  Analysis of builder's Coretime consumption.
 5.  Payout metrics for builders (once builders are deployed on Polkadot/Kusama)
 
 #### Developer Console
 
 **Advisor**
 
-A machine learning model akin to the Azure advisor recommending the assignment size and associated costs for a specific task. Providing users with these recommendations will ensure that they don’t buy unnecessary coretime. Our model will be trained from the first usage and recommends assignments for tasks based on that usage information for optimized costs. As the model receives more data from one bulk period to another, it will improve to offer more accurate recommendations.
+A machine learning model akin to the Azure advisor recommending the assignment size and associated costs for a specific task. Providing users with these recommendations will ensure that they don’t buy unnecessary Coretime. Our model will be trained from the first usage and recommends assignments for tasks based on that usage information for optimized costs. As the model receives more data from one bulk period to another, it will improve to offer more accurate recommendations.
 
-As the advisor model evolves and gathers more data, it will adeptly discern the computational demands of various tasks. This refined understanding will empower it to provide precise coretime recommendations from the very first period, leading to substantial savings for teams.
+As the advisor model evolves and gathers more data, it will adeptly discern the computational demands of various tasks. This refined understanding will empower it to provide precise Coretime recommendations from the very first period, leading to substantial savings for teams.
 
 **Identity and Access Management**
 
-Including the functionality to add multiple team members to the console promotes team collaboration. Alongside having multiple identities, we will include permissions to avoid coretime misuse. Integrating the multisig pallet is a clear solution to achieve such and will make sense once Corego has transitioned to a specialized chain with more flexibility to offer such features.
+Including the functionality to add multiple team members to the console promotes team collaboration. Alongside having multiple identities, we will include permissions to avoid Coretime misuse. Integrating the multisig pallet is a clear solution to achieve such and will make sense once Corego has transitioned to a specialized chain with more flexibility to offer such features.
 
 **Team KPIs**
 
@@ -471,7 +471,7 @@ We will implement these alerts using our own infrastructure, allowing us to expo
 	We look to integrate this alert by creating a unique event that emits when the region’s parameter ‘when’ exceeds ‘last_until’ and emits an event to reflect this. We will listen for this event and alert the user when it is emitted.
 
 - **Wastage Reporting**
-	Notifying the user in case of utilizing a very small portion of the owned coretime may influence the user to reconsider their usage optimizations and potentially decide to sell part of their region on the market.
+	Notifying the user in case of utilizing a very small portion of the owned Coretime may influence the user to reconsider their usage optimizations and potentially decide to sell part of their region on the market.
 
 	We will gather averages of the user’s consumption over time, and once data is sufficient, we will detect scenarios where the consumption is much less than the all-time average. We will listen for this event and alert the user when it is emitted.
 
