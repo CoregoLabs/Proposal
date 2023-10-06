@@ -245,7 +245,6 @@ The UI will list all of the tasks that the user uploaded to the relay chain. It 
 
 - Upload task
 - Rename task
-
 **3. Costs**
 
 The price the user paid per region and the total cost of all the regions will provide users with a view of Polkadot spending at a glance.
@@ -336,7 +335,7 @@ Github profiles of team mebers:
 
 - **Estimated duration:** 1 month
 - **FTE:** 3.5
-- **Costs:** TBD
+- **Costs:** 22500 USD
 
 |  Number | Deliverable                     | Specification                                                                                                                                                                                                                                                                              |
 | ------: | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -344,10 +343,12 @@ Github profiles of team mebers:
 | **0b.** | Documentation                   | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project.                                                                                       |
 | **0c.** | Testing and Testing Guide       | All interactions with the Coretime parachain will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will be running a local zombienet network to simulate the existance of a Coretime parachain.                                     |
 | **0d.** | Docker                          | We will provide a Dockerfile that will set up the and run the Corego Coretime abstractions UI.                                                                                                                                                                                             |
-|     0e. | Article                         | TODO                                                                                                                                                                                                                                                                                       |
+|     0e. | Article                         | TODO rewrite: Medium article on Medium article explaining the Coretime abstractions UI and all the actions the user can perform on their regions.                                                                                                                                                                                                                                                                              |
 |      1. | Design finalization             | We will complete the design for the Coretime Abstraction UI, and based on that, we will proceed to develop the frontend code.                                                                                                                                                              |
-|      2. | Mock Coretime Parachain runtime | We will establish a parachain dedicated to testing the Coretime abstractions. Essentially, this involves creating a parachain that implements the `broker pallet`. We will use this runtime in our zombienet network. This will be used in the upcoming milestones as well.                |
-|      3. | Coretime Abstraction UI         | We will implement all the sections and components described in the _Coretime Abstractions_ section above. To summarize, this will consist of the following components: region dashboard, partitioning UI, interlacing UI, naming regions & tasks components, assignment UI and transfer UI |
+|      2. | Mock Coretime Parachain runtime | We will establish a parachain dedicated to testing the Coretime abstractions and all future milestones. Essentially, this involves creating a parachain runtime that implements the `pallet-broker`. This parachain will simulate the Coretime chain. |
+|      3. | Simulated Local Network | Using the mock Coretime parachain, we will create a local Zombienet network consisting of a relay chain, Coretime chain, and a smart contract chain for the Coretime market. |
+|      4. | Coretime Abstraction UI         | We will implement all the sections and components described in the _Coretime Abstractions_ section above. To summarize, this will consist of the following components: region dashboard, partitioning UI, interlacing UI, naming regions & tasks components, assignment UI and transfer UI |
+|      5. | Cross-chain Regions            | As described in the previous sections, we will create an ink! smart contract that will be representing regions on the contracts parachain where we choose to deploy Corego. This essentially means that users will have the capability to transfer their regions from the Coretime chain to another parachain.                                              |
 
 ### Milestone 2 - Cross Chain Regions
 
@@ -361,10 +362,10 @@ Github profiles of team mebers:
 | **0b.** | Documentation                  | The ink! smart contract will be well written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project.        |
 | **0c.** | Testing and Testing Guide      | The ink! smart contract will undergo thorough testing, including e2e testing with a simulated zombienet network, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. |
 | **0d.** | Docker                         | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI.                                                                 |
-|     0e. | Article                        | TODO                                                                                                                                                                                                                                                                          |
-|      1. | Region NFT contract            | As described in the previous sections, we will create an ink! smart contract that will be representing regions on the contracts parachain where we choose to deploy Corego.                                                                                                   |
-|      2. | Finalize cross-chain UI Design | We will finalize the design for the cross-chain region transfer UI. Following this, we will proceed to develop the frontend code.                                                                                                                                             |
-|      3. | Cross-chain Transfer UI        | We will create the UI for transferring the region NFTs from the Coretime parachain to the contracts parachain and vice versa.                                                                                                                                                 |
+|     0e. | Article                        | TODO rewrite: Medium article explaining cross-chain region transfers and the reason why it is needed.                                                                                                                                                                                                                                                                 |
+|      1. | Finalize cross-chain UI Design | We will finalize the design for the cross-chain region transfer UI. Following this, we will proceed to develop the frontend code.                                                                                                                                             |
+|      2. | Cross-chain Transfer UI        | We will create the UI for transferring the region NFTs from the Coretime parachain to the contracts parachain and vice versa.                                                                                                                                                 |
+|      3. | Region derivation        | We will implement region derivation in the Regions NFT contract, as described in the project details section. This feature will be used by the Coretime market to enable users to buy only a chunk of a listed region.                                                                                                                                      |
 
 ### Milestone 3 - Coretime Market
 
