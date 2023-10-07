@@ -24,7 +24,7 @@
 
 The project essentially consists of four parts that will create a cohesive application. In the following sections, each of them is described in great detail.
 
-#### Coretime Abstractions
+#### Coretime UI
 
 Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, users must be allowed to perform actions on their Coretime using Corego.
 
@@ -331,7 +331,7 @@ Github profiles of team mebers:
 - **FTE:** 3.5 (3 + 0.5 designer)
 - **Total Costs:** TBD
 
-### Milestone 1 - Coretime Abstractions
+### Milestone 1 - Coretime UI & xcRegions
 
 - **Estimated duration:** 1 month
 - **FTE:** 3.5
@@ -342,13 +342,13 @@ Github profiles of team mebers:
 | **0a.** | License                         | MIT (?)                                                                                                                                                                                                                                                                                    |
 | **0b.** | Documentation                   | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project.                                                                                       |
 | **0c.** | Testing and Testing Guide       | All interactions with the Coretime parachain will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will be running a local Zombienet network to simulate the existence of a Coretime parachain.                                     |
-| **0d.** | Docker                          | We will provide a Dockerfile that will set up and run the Corego Coretime abstractions UI.                                                                                                                                                                                             |
-|     0e. | Article                         | We'll compose a Medium article to explain the UI abstractions we've introduced around Coretime, offering insights into the capabilities achievable through the utilization of the Corego Coretime Abstractions UI.                                                                                                                                                                                                                                                                          |
+| **0d.** | Docker                          | We will provide a Dockerfile that will set up and run the Corego Coretime UI.                                                                                                                                                                                             |
+|     0e. | Article                         | We'll compose a Medium article to explain the UI abstractions we've introduced around Coretime, offering insights into the capabilities achievable through the utilization of the Corego Coretime UI.                                                                                                                                                                                                                                                                          |
 |     1. | Video about Coretime UI                        | We will create a brief video that explains all the functionality provided by the Coretime UI. The video will be similar to the [Polkadot staking video](https://youtu.be/mq3SFJPti4o).                                                                                                                                                                                                                                                                       |
-|      2. | Design finalization             | We will complete the design for the Coretime Abstraction UI, and based on that, we will proceed to develop the frontend code.                                                                                                                                                              |
+|      2. | Design finalization             | We will complete the design for the Coretime UI, and based on that, we will proceed to develop the frontend code.                                                                                                                                                              |
 |      3. | Mock Coretime Parachain runtime | We will establish a parachain dedicated to testing the Coretime abstractions and all future milestones. Essentially, this involves creating a parachain runtime that implements the `pallet-broker`. This parachain will simulate the Coretime chain. |
 |      4. | Simulated Local Network | Using the mock Coretime parachain, we will create a local Zombienet network consisting of a relay chain, Coretime chain, and a smart contract chain for the Coretime market. |
-|      5. | Coretime Abstraction UI         | We will implement all the sections and components described in the _Coretime Abstractions_ section above. To summarize, this will consist of the following components: region dashboard, partitioning UI, interlacing UI, naming regions & tasks components, assignment UI and transfer UI |
+|      5. | Coretime UI         | We will implement all the sections and components described in the _Coretime UI_ section above. To summarize, this will consist of the following components: region dashboard, partitioning UI, interlacing UI, naming regions & tasks components, assignment UI and transfer UI |
 |      6. | Cross-chain Regions            | As described in the previous sections, we will create an ink! smart contract that will be representing regions on the contracts parachain where we choose to deploy Corego. This essentially means that users will have the capability to transfer their regions from the Coretime chain to another parachain.                                              |
 
 ### Milestone 2 - Cross Chain Regions
