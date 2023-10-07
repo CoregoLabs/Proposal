@@ -295,7 +295,7 @@ As integrating the novel Coretime concept into Polkadot unfolds, we remain vigil
 
 - **Contact Name:** Julian Saks, Sergej Sakac
 - **Contact Email:** juliansaks@gmail.com, sakacszergej@gmail.com
-- **Website:** TODO
+- **Website:** https://corego.org/
 
 ### Legal Structure
 
