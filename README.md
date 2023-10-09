@@ -17,7 +17,6 @@
 - Corego is a marketplace and a set of tools for Coretime manipulation and data tracking, with the goal of making development on Polkadot faster, easier, more flexible, and, as an end result, cheaper.
 - Corego is a project that builds upon the ideas presented in the Agile Coretime RFC. The project will be developed under the assumption that the functionality described in the RFC will be implemented within the Polkadot/Kusama ecosystem.
   Given that the `pallet-broker` already exists, we will have the capability to undertake all the development outlined in this proposal.
-
 * Creating robust tooling and a market for Coretime can have a significant impact on the development that takes place on Polkadot. It will enable experiments and small personal projects to be deployed to Polkadot with minimal effort and cost.
 
 ### Project Details
