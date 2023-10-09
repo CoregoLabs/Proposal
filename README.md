@@ -80,8 +80,6 @@ If a user doesn't want to buy the entire region but only a part of it, the buyer
 The contract will also calculate the amount that needs to be paid for that and charge the buyer the appropriate amount. After all these steps, the seller will receive their tokens, and the buyer will obtain their desired Coretime. 
 We refer to this feature as **Region Derivation**. It will give buyers more options when purchasing Coretime, making it easier to meet their specific needs.
 
-TODO: Should we provide an example here from the market doc?
-
 **Defining the price of Coretime**
 The price of Coretime will be highly influenced by supply and demand. Since we are constructing a market with an NFT order book model, users will have the authority to establish the price of the Coretime they intend to sell.
 
@@ -164,10 +162,10 @@ Data
 - Post-Leadin Coretime Price: Price after the leadin period.
 - Core Utilization: Percentage of utilized cores (with a graph for time-based visualization).
 - Region Utilization: Percentage of utilized regions (with a graph for time-based visualization).
-- Instantaneous Pool Data
-- Contributor Input: Circle graph showcasing contributor-provided and system-provided bits, akin to the income graph on the dotreasury website.
 - Coretime Purchases: Volume purchased during a specific time frame.
-- Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website.
+- Instantaneous Pool Data
+	- Contributor Input: Circle graph showcasing contributor-provided and system-provided bits, akin to the income graph on the dotreasury website.
+	- Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website.
 
 **3. Market**
 As the secondary market expands with increasing user transitions, it becomes crucial to index pertinent data.
@@ -193,7 +191,7 @@ As outlined earlier, users have an array of tools at their disposal to modify th
 
 Data:
 
-_The number of occurrences during a specified time period:_
+The number of occurrences during a specified time period:
 
 - Partitioning
 - Interlacing
@@ -339,7 +337,7 @@ Github profiles of team mebers:
 
 |  Number | Deliverable                     | Specification                                                                                                                                                                                                                                                                              |
 | ------: | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **0a.** | License                         | MIT (?)                                                                                                                                                                                                                                                                                    |
+| **0a.** | License                         | MIT                                                                                                                                                                                                                                                                                    |
 | **0b.** | Documentation                   | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project.                                                                                       |
 | **0c.** | Testing and Testing Guide       | All interactions with the Coretime parachain will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will be running a local Zombienet network to simulate the existence of a Coretime parachain.                                     |
 | **0d.** | Docker                          | We will provide a Dockerfile that will set up and run the Corego Coretime UI.                                                                                                                                                                                             |
@@ -359,7 +357,7 @@ Github profiles of team mebers:
 
 |  Number | Deliverable                    | Specification                                                                                                                                                                                                                                                                 |
 | ------: | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0a.** | License                        | MIT (?)                                                                                                                                                                                                                                                                       |
+| **0a.** | License                        | MIT                                                                                                                                                                                                                                                                       |
 | **0b.** | Documentation                  | The ink! smart contract will be well-written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project.        |
 | **0c.** | Testing and Testing Guide      | The ink! smart contract will undergo thorough testing, including e2e testing with a simulated zombienet network, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. |
 | **0d.** | Docker                         | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI.                                                                 |
@@ -377,7 +375,7 @@ Github profiles of team mebers:
 
 |  Number | Deliverable                | Specification                                                                                                                                                                                                                                                           |
 | ------: | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0a.** | License                    | MIT (?)                                                                                                                                                                                                                                                                 |
+| **0a.** | License                    | MIT                                                                                                                                                                                                                                                                 |
 | **0b.** | Documentation              | The ink! smart contracts will be well-written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
 | **0c.** | Testing and Testing Guide  | The ink! smart contracts will undergo thorough testing, including ink! integration and end-to-end tests, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI.   |
 | **0d.** | Docker                     | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI.                                                           |
@@ -395,7 +393,7 @@ Github profiles of team mebers:
 
 |  Number | Deliverable                        | Specification                                                                                                                                                                                        |
 | ------: | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0a.** | License                            | MIT (?)                                                                                                                                                                                              |
+| **0a.** | License                            | MIT                                                                                                                                                                                              |
 | **0b.** | Documentation                      | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
 | **0c.** | Testing and Testing Guide          | The data dashboard doesn't contain any critical logic; nevertheless, we will ensure that all the data displayed on the dashboard is accurate.                                                        |
 | **0d.** | Docker                             | We will provide Dockerfiles for the ink! smart contracts that will configure and run the Corego UI.                                                                                             |
@@ -411,7 +409,7 @@ Github profiles of team mebers:
 
 |  Number | Deliverable               | Specification                                                                                                                                                                                        |
 | ------: | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0a.** | License                   | MIT (?)                                                                                                                                                                                              |
+| **0a.** | License                   | MIT                                                                                                                                                                                              |
 | **0b.** | Documentation             | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
 | **0c.** | Testing and Testing Guide | All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will additionally ensure that the alerts are working correctly.     |
 | **0d.** | Docker                    | We will provide Dockerfiles for the ink! smart contracts that will configure and run the Corego UI.                                                                                             |
@@ -478,7 +476,6 @@ To achieve this, we will use a specific KPI (Coretime utilized / Coretime bought
 We will implement these alerts using our own infrastructure, allowing us to export more data and integrate with more communication networks (Matrix, WhatsApp, Email). This commitment to having infrastructure assigned to alerts will specifically benefit us as we anticipate that most notification services won’t support our chain early on.
 
 - **Expiring Region Warning**
-
 	Warning the user, whenever one of his regions is close to expiry, will remind him to potentially buy a new region for future assignments.
 
 	We look to integrate this alert by creating a unique event that emits when the region’s parameter ‘when’ exceeds ‘last_until’ and emits an event to reflect this. We will listen to this event and alert the user when it is emitted.
