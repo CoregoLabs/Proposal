@@ -192,6 +192,7 @@ Data
 As outlined earlier, users have an array of tools at their disposal to modify their regions. Compiling data on these modifications, such as the number of interlaced or partitioned regions at any given moment, can offer robust insights into market activity and specialization.
 
 Data:
+
 _The number of occurrences during a specified time period:_
 
 - Partitioning
