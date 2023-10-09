@@ -44,7 +44,7 @@ Considering that the entire project is built upon the ideas presented in the Agi
 
 - **Naming Regions & Tasks**: Users will have the option to assign names to their regions and tasks, making it simple to differentiate them.
 
-- **Assignment** **Assignment UI** will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process. TODO: better image
+- **Assignment UI** will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process. TODO: better image
   <p align="center">
     <img width="400" src="https://i.postimg.cc/ncjLDcN2/image-2.png"/>
   </p>
