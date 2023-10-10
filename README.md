@@ -245,6 +245,7 @@ The UI will list all of the tasks that the user uploaded to the relay chain. It 
 
 - Upload task
 - Rename task
+  
 **3. Costs**
 
 The price the user paid per region and the total cost of all the regions will provide users with a view of Polkadot spending at a glance.
