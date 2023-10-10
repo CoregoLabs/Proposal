@@ -98,7 +98,7 @@ This approach allows us to easily calculate the price of the region the buyer in
 
 **Region Derivation**
 
-As demonstrated in the previous example, buyers have the option to acquire only a portion of a region, which is achieved by the buyer submitting a set of instructions to generate the desired region. A high level description of how this will work: 
+As demonstrated in the previous example, buyers have the option to acquire only a portion of a region, which is achieved by the buyer submitting a set of instructions to generate the desired region. A high-level description of how this will work: 
 
 1. User will transfer a deposit that is equal to `region_price + bit_price * DERIVATION_DURATION_LIMIT`.
 2. The contract will transfer the entire region to the user and will write a record in the 'pending_derivations' mapping.
@@ -155,9 +155,6 @@ We came up with an implementation design that makes it possible to develop the m
 Our solution has very minimal and reasonable assumptions required to make this possible.
 
 Our sole assumption is that the concepts outlined in the Agile Coretime RFC are implemented in Polkadot/Kusama. We do not have any specific assumptions concerning the XCM configuration on the Coretime parachain to make this work. We only require that the Coretime parachain allows basic reserve transfers.
-
-The only feature with a slightly greater assumption is region derivation. We need the Coretime parachain and the contracts parachain to support the `Transact` XCM instruction to enable region derivation.
-This is because regions can only be partitioned or interlaced on the Coretime parachain. Consequently, during region derivation, the region must be transferred to the Coretime parachain, where all instructions are executed (this is where the Transact instruction is required). Subsequently, the new regions are transferred back to the contracts parachain, where one of the regions is sent to the buyer, while the remaining regions are listed again on the market.
 
 **Region NFT Contract**
 To create a marketplace on a contracts parachain, we'll need an NFT region contract. We'll use the [Openbrush](https://openbrush.brushfam.io/) library to simplify development, as it only requires a few adjustments.
