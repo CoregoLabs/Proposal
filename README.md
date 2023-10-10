@@ -383,11 +383,11 @@ Github profiles of team mebers:
 |      5. | Coretime UI         | We will implement all the sections and components described in the _Coretime UI_ section above. To summarize, this will consist of the following components: region dashboard, partitioning UI, interlacing UI, naming regions & tasks components, assignment UI and transfer UI |
 |      6. | Cross-chain Regions            | As described in the previous sections, we will create an ink! smart contract that will be representing regions on the contracts parachain where we choose to deploy Corego. This essentially means that users will have the capability to transfer their regions from the Coretime chain to another parachain.                                              |
 
-### Milestone 2 - Cross Chain Regions
+### Milestone 2 - xcRegions UI & Coretime market contract
 
-- **Estimated duration:** 1 month
+- **Estimated duration:** 1.5 month
 - **FTE:** 3.5
-- **Costs:** 22500
+- **Costs:** 33750
 
 |  Number | Deliverable                    | Specification                                                                                                                                                                                                                                                                 |
 | ------: | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -399,13 +399,13 @@ Github profiles of team mebers:
 |     1. | Video about Cross-Chain Regions                        | We will create a short video to explain the project's architecture and the user interface for cross-chain transfers. The video will be similar to the [Polkadot staking video](https://youtu.be/mq3SFJPti4o).                                                                                                                                                                                                        |
 |      2. | Finalize cross-chain UI Design | We will finalize the design for the cross-chain region transfer UI. Following this, we will proceed to develop the frontend code.                                                                                                                                             |
 |      3. | Cross-chain Transfer UI        | We will create the UI for transferring the region NFTs from the Coretime parachain to the contracts parachain and vice versa.                                                                                                                                                 |
-|      4. | Region derivation        | We will implement region derivation in the Regions NFT contract, as described in the project details section. This feature will be used by the Coretime market to enable users to buy only a chunk of a listed region.                                                                                                                                      |
+|      4. | Coretime Market contract   | We will develop the Coretime market as an ink! smart contract, as described above in the _Secondary Market_ section.                                                                                                                                                    |
 
-### Milestone 3 - Coretime Market
+### Milestone 3 - Coretime Market UI & Region derivation
 
-- **Estimated duration:** 2 months
+- **Estimated duration:** 1.5 months
 - **FTE:** 3.5
-- **Costs:** 45000
+- **Costs:** 33750
 
 |  Number | Deliverable                | Specification                                                                                                                                                                                                                                                           |
 | ------: | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -415,7 +415,7 @@ Github profiles of team mebers:
 | **0d.** | Docker                     | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI.                                                           |
 |     0e. | Article                    | We will write a Medium article that elaborates on the significance of a secondary Coretime market and the substantial benefits it offers. The article will delve into our dynamic pricing model, ensuring users have a clear understanding that unused Coretime essentially goes to waste.                                                                                                                                                                                                                                                                   |
 |     1. | Video about Coretime Market                        | We will create a brief video to provide an explanation of the Coretime Market and the region derivation feature. The video will be similar to the [Polkadot staking video](https://youtu.be/mq3SFJPti4o).                                                                                                                                                                                                        |
-|      2. | Coretime Market contract   | We will develop the Coretime market as an ink! smart contract, as described above in the _Secondary Market_ section.                                                                                                                                                    |
+|      2. | Region derivation        | We will implement region derivation as described in the project details section. This feature will be used by the Coretime market to enable users to buy only a chunk of a listed region.                                                                                                                                 |
 |      3. | Finalize market UI designs | We will finalize the design for the Coretime market UI. Following this, we will proceed to develop the frontend code.                                                                                                                                                   |
 |      4. | Coretime Market UI         | We will create the UI for interacting with all the functionality exposed by the Coretime market contract. The UI will also offer an intuitive design that allows the buyer to describe their desired region.                                                            |
 
