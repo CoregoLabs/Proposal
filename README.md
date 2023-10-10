@@ -25,34 +25,39 @@ The project essentially consists of four parts that will create a cohesive appli
 
 #### Coretime UI
 
-Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, users must be allowed to perform actions on their Coretime using Corego.
+Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, users must be able to perform actions on their Coretime using Corego. For this reason, we will provide the Coretime UI, which will simplify the management of regions. The following is a list of components we intend to incorporate into Corego.
 
 - **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that users can perform on their region.
 
-  TODO: IMAGE
+    Region dashboard when nothing is selected: 
+   <p align="center">
+    <img width="800" src="https://i.postimg.cc/dt0kKhFS/a2.png"/>
+   </p>
+
+    Region dashboard when a region is selected: 
+   <p align="center">
+    <img width="800" src="https://i.postimg.cc/4NMCN0CR/a1.png"/>
+   </p>
 
 - **Partitioning UI** will offer users a convenient method for splitting their region. The UI will visually represent the region as a timeline, highlighting all potential pivotal points available for partitioning.
 
+  	The Partitioning UI visualizes the region as a timeline and divides it into the selected TIME UNIT. This allows the user to easily determine the pivot point.
   <p align="center">
-    <img width="800" src="https://i.postimg.cc/zB7y0tkk/parititoning-v2.png"/>
+    <img width="800" src="https://i.postimg.cc/XYLnN8gf/b2.png"/>
   </p>
 
-- **Interlacing UI** will also allow users to easily interlace the region they own. The user will be able to specify the region core mask as a fraction. The UI will visually show a block colored with a distinct color based on the fraction. TODO: Provide a better image
+	When the pivot point is selected:
   <p align="center">
-    <img width="300" src="https://i.postimg.cc/brdwLzrz/image.png"/>
+    <img width="800" src="https://i.postimg.cc/PJj7wGXP/b3.png"/>
   </p>
+
+- **Interlacing UI** will also allow users to easily interlace the region they own. The user will have the option to specify the region core mask as a fraction, with the denominator fixed at the number 8. The UI will visually display a block colored with two distinct colors based on the fraction to represent the amount of Coretime that can be utilized by the two overlapping regions.
 
 - **Naming Regions & Tasks**: Users will have the option to assign names to their regions and tasks, making it simple to differentiate them.
 
-- **Assignment UI** will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process. TODO: better image
-  <p align="center">
-    <img width="400" src="https://i.postimg.cc/ncjLDcN2/image-2.png"/>
-  </p>
+- **Assignment UI** will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process.
 
-- **Transfer** UI will offer a straightforward modal for users to perform transfers. TODO: better image
-  <p align="center">
-    <img width="300" src="https://i.postimg.cc/k59MzNGY/transfer.png"/>
-  </p>
+- **Transfer** UI will offer a straightforward modal for users to perform transfers.
 
 #### Secondary Market
 
@@ -60,7 +65,7 @@ Coretime is a resource that goes to waste if not utilized during its intended ti
 
 After buying Coretime during the bulk period, one may realize that the purchased Coretime is either too much or too little for the intended use. The secondary market assists these individuals and teams in rectifying their mistakes by enabling them to sell or buy more Coretime.
 
-Coretime can be partitioned and interlaced, meaning most of the Coretime on sale will hardly be the same. For this reason, we are going to utilise the order book model.
+Coretime can be partitioned and interlaced, meaning most of the Coretime on sale will hardly be the same. For this reason, we are going to utilize the order book model.
 
 The seller will need to specify the price for the entire region, and based on that, the contract will calculate the price of one bit, which is equivalent to 1/80th of the price of the entire region.
 
@@ -76,13 +81,11 @@ This bit-based valuation means that the total value of the Coretime owned by the
 	-   The user will have to pay the price for the region; however, this won't be the price of the entire region. The price will be defined by `remaining_smallest_units * price_per_unit`.
 3.  The user pays the price, the seller receives the paid amount, and the buyer receives the region.
 
-If a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to create a region with the properties they desire. The contract will be able to follow the buyer's steps and create a region that the buyer wants to buy. 
-The contract will also calculate the amount that needs to be paid for that and charge the buyer the appropriate amount. After all these steps, the seller will receive their tokens, and the buyer will obtain their desired Coretime. 
+If a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to create a region with the properties they desire. This way, the user pays only for the portion of the region they wish to acquire.
 We refer to this feature as **Region Derivation**. It will give buyers more options when purchasing Coretime, making it easier to meet their specific needs.
 
-TODO: Should we provide an example here from the market doc?
-
 **Defining the price of Coretime**
+
 The price of Coretime will be highly influenced by supply and demand. Since we are constructing a market with an NFT order book model, users will have the authority to establish the price of the Coretime they intend to sell.
 
 Depending on whether the seller owns an entire core, only partitioned parts, or has it interlaced, the selling price of the Coretime will be affected.
@@ -100,11 +103,58 @@ This approach allows us to easily calculate the price of the region the buyer in
 `price = bit_price * active_bits`
 
 **Region Derivation**
-As demonstrated in the previous example, buyers have the option to acquire only a portion of a region, which is achieved by the buyer submitting a set of instructions to generate the desired region. However, manually specifying these instructions can be a challenging task for users.
 
-The approach we aim to adopt here is to enable users to describe the desired characteristics of the region they require. Using all the provided input, the frontend will determine whether the specified region can be generated from all regions listed on the market. If a match is found, the user will be presented with a price for their region. Future iterations of this feature may include Natural Language Processing (NLP) to describe the region's characteristics.
+As demonstrated in the previous example, buyers have the option to acquire only a portion of a region, which is achieved by the buyer submitting a set of instructions to generate the desired region. A high-level description of how this will work: 
+
+1. User will transfer a deposit that is equal to `region_price + bit_price * DERIVATION_DURATION_LIMIT`.
+2. The contract will transfer the entire region to the user and will write a record in the 'pending_derivations' mapping.
+3. The region will be transferred to the Coretime parachain, and the instructions will be executed on the region.
+4. The newly created regions will be transferred back to the contracts chain.
+5. The regions that the user doesn't need will be returned to the market, and the user will receive a partial refund of their deposit. The rest of the deposit goes to the seller
+6. The regions received by the market are relisted for sale under the original seller.
+
+In the event that the buyer doesn't return the regions before `DERIVATION_DURATION_LIMIT` elapses, the seller is entitled to claim the entire deposit.
+
+```rs
+/// The duration limit of a derivation.
+///
+/// The buyer will only receive a refund when returning the expected regions before the 
+/// derivation duration limit is reached.
+//
+// NOTE: The value of the duration limit will be adjusted.
+const DERIVATION_DURATION_LIMIT: BlockNumber = 15;
+
+struct RegionInfo {
+    core_index: u16,
+    begin: Timeslice,
+    end: Timeslice,
+    mask: CoreMask,
+    bit_price: Balance,
+}
+
+struct DerivationInfo {
+    /// All the regions that are expected to be returned from the buyer for a refund.
+    expected_regions: Vec<RegionInfo>,
+    /// The amount of refund the buyer can receive.
+    refund: Balance,
+    /// The block number when the buyer purchased the region for derivation.
+    derivation_timestamp: BlockNumber,
+}
+
+#[ink(storage)]
+struct CoretimeMarket {
+	/* ... */
+	/// The `AccountId` represents the buyer.
+	pending_derivations: Mapping<AccountId, DerivationInfo>
+}
+```
+
+However, manually specifying these instructions can be a challenging task for users.
+
+The approach we aim to adopt here is to enable users to describe the desired characteristics of the region they require. Using all the provided input, the frontend will determine whether the specified region can be generated from any of the regions listed on the market. If a match is found, the user will be presented with a price for their region. Future iterations of this feature may include Natural Language Processing (NLP) to describe the region's characteristics.
 
 **Market Architecture**
+
 The Coretime marketplace can be implemented in four different ways, which include:
 
 1.  Ink! smart contract
@@ -116,15 +166,14 @@ From these options, we've selected the Ink! smart contract as our initial approa
 We possess a much more comprehensive overview of all these options, which we chose not to include here to avoid making this proposal too lengthy. However, we can provide it if there is interest.
 
 **Implementation Requirements**
+
 We came up with an implementation design that makes it possible to develop the market as an ink! smart contract located on a contracts parachain in the Polkadot/Kusama ecosystem.
 Our solution has very minimal and reasonable assumptions required to make this possible.
 
 Our sole assumption is that the concepts outlined in the Agile Coretime RFC are implemented in Polkadot/Kusama. We do not have any specific assumptions concerning the XCM configuration on the Coretime parachain to make this work. We only require that the Coretime parachain allows basic reserve transfers.
 
-The only feature with a slightly greater assumption is region derivation. We need the Coretime parachain and the contracts parachain to support the `Transact` XCM instruction to enable region derivation.
-This is because regions can only be partitioned or interlaced on the Coretime parachain. Consequently, during region derivation, the region must be transferred to the Coretime parachain, where all instructions are executed (this is where the Transact instruction is required). Subsequently, the new regions are transferred back to the contracts parachain, where one of the regions is sent to the buyer, while the remaining regions are listed again on the market.
-
 **Region NFT Contract**
+
 To create a marketplace on a contracts parachain, we'll need an NFT region contract. We'll use the [Openbrush](https://openbrush.brushfam.io/) library to simplify development, as it only requires a few adjustments.
 
 #### Data Dashboard
@@ -134,6 +183,7 @@ Corego's **Data Dashboard** is a central hub for users, offering essential insig
 We have divided the data dashboard into four sections.
 
 **1. Constants**
+
 Displaying configuration constants to users is highly beneficial, giving them a more comprehensive macro understanding of the system.
 
 For instance, by tracking daily, weekly, or other periodic purchases and sales, users can better understand Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the [1inch](https://1inch.io/) protocol.
@@ -147,6 +197,7 @@ Data shown in the constants section:
 - Renewal Price Increase: The maximum price increase of a renewable region.
 
 **2. Coretime Chain**
+
 While we don't directly oversee the operations of the Coretime chain, indexing data from the primary market can offer significant insights.
 
 Data
@@ -164,12 +215,13 @@ Data
 - Post-Leadin Coretime Price: Price after the leadin period.
 - Core Utilization: Percentage of utilized cores (with a graph for time-based visualization).
 - Region Utilization: Percentage of utilized regions (with a graph for time-based visualization).
-- Instantaneous Pool Data
-- Contributor Input: Circle graph showcasing contributor-provided and system-provided bits, akin to the income graph on the dotreasury website.
 - Coretime Purchases: Volume purchased during a specific time frame.
-- Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website.
+- Instantaneous Pool Data
+	- Contributor Input: Circle graph showcasing contributor-provided and system-provided bits, akin to the income graph on the dotreasury website.
+	- Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website.
 
 **3. Market**
+
 As the secondary market expands with increasing user transitions, it becomes crucial to index pertinent data.
 
 For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the **1inch** protocol.
@@ -193,7 +245,7 @@ As outlined earlier, users have an array of tools at their disposal to modify th
 
 Data:
 
-_The number of occurrences during a specified time period:_
+The number of occurrences during a specified time period:
 
 - Partitioning
 - Interlacing
@@ -340,7 +392,7 @@ Github profiles of team mebers:
 
 |  Number | Deliverable                     | Specification                                                                                                                                                                                                                                                                              |
 | ------: | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **0a.** | License                         | MIT (?)                                                                                                                                                                                                                                                                                    |
+| **0a.** | License                         | MIT                                                                                                                                                                                                                                                                                    |
 | **0b.** | Documentation                   | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project.                                                                                       |
 | **0c.** | Testing and Testing Guide       | All interactions with the Coretime parachain will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will be running a local Zombienet network to simulate the existence of a Coretime parachain.                                     |
 | **0d.** | Docker                          | We will provide a Dockerfile that will set up and run the Corego Coretime UI.                                                                                                                                                                                             |
@@ -352,15 +404,15 @@ Github profiles of team mebers:
 |      5. | Coretime UI         | We will implement all the sections and components described in the _Coretime UI_ section above. To summarize, this will consist of the following components: region dashboard, partitioning UI, interlacing UI, naming regions & tasks components, assignment UI and transfer UI |
 |      6. | Cross-chain Regions            | As described in the previous sections, we will create an ink! smart contract that will be representing regions on the contracts parachain where we choose to deploy Corego. This essentially means that users will have the capability to transfer their regions from the Coretime chain to another parachain.                                              |
 
-### Milestone 2 - Cross Chain Regions
+### Milestone 2 - xcRegions UI & Coretime market contract
 
-- **Estimated duration:** 1 month
+- **Estimated duration:** 1.5 month
 - **FTE:** 3.5
-- **Costs:** 22500
+- **Costs:** 33750
 
 |  Number | Deliverable                    | Specification                                                                                                                                                                                                                                                                 |
 | ------: | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0a.** | License                        | MIT (?)                                                                                                                                                                                                                                                                       |
+| **0a.** | License                        | MIT                                                                                                                                                                                                                                                                       |
 | **0b.** | Documentation                  | The ink! smart contract will be well-written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project.        |
 | **0c.** | Testing and Testing Guide      | The ink! smart contract will undergo thorough testing, including e2e testing with a simulated zombienet network, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. |
 | **0d.** | Docker                         | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI.                                                                 |
@@ -368,23 +420,23 @@ Github profiles of team mebers:
 |     1. | Video about Cross-Chain Regions                        | We will create a short video to explain the project's architecture and the user interface for cross-chain transfers. The video will be similar to the [Polkadot staking video](https://youtu.be/mq3SFJPti4o).                                                                                                                                                                                                        |
 |      2. | Finalize cross-chain UI Design | We will finalize the design for the cross-chain region transfer UI. Following this, we will proceed to develop the frontend code.                                                                                                                                             |
 |      3. | Cross-chain Transfer UI        | We will create the UI for transferring the region NFTs from the Coretime parachain to the contracts parachain and vice versa.                                                                                                                                                 |
-|      4. | Region derivation        | We will implement region derivation in the Regions NFT contract, as described in the project details section. This feature will be used by the Coretime market to enable users to buy only a chunk of a listed region.                                                                                                                                      |
+|      4. | Coretime Market contract   | We will develop the Coretime market as an ink! smart contract, as described above in the _Secondary Market_ section.                                                                                                                                                    |
 
-### Milestone 3 - Coretime Market
+### Milestone 3 - Coretime Market UI & Region derivation
 
-- **Estimated duration:** 2 months
+- **Estimated duration:** 1.5 months
 - **FTE:** 3.5
-- **Costs:** 45000
+- **Costs:** 33750
 
 |  Number | Deliverable                | Specification                                                                                                                                                                                                                                                           |
 | ------: | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0a.** | License                    | MIT (?)                                                                                                                                                                                                                                                                 |
+| **0a.** | License                    | MIT                                                                                                                                                                                                                                                                 |
 | **0b.** | Documentation              | The ink! smart contracts will be well-written and documented. We will also create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
 | **0c.** | Testing and Testing Guide  | The ink! smart contracts will undergo thorough testing, including ink! integration and end-to-end tests, to ensure maximum correctness. All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI.   |
 | **0d.** | Docker                     | We will provide Dockerfiles for the ink! smart contracts that will set up the environment and execute the contract tests. Additionally, we will offer a Dockerfile that will configure and run the Corego UI.                                                           |
 |     0e. | Article                    | We will write a Medium article that elaborates on the significance of a secondary Coretime market and the substantial benefits it offers. The article will delve into our dynamic pricing model, ensuring users have a clear understanding that unused Coretime essentially goes to waste.                                                                                                                                                                                                                                                                   |
 |     1. | Video about Coretime Market                        | We will create a brief video to provide an explanation of the Coretime Market and the region derivation feature. The video will be similar to the [Polkadot staking video](https://youtu.be/mq3SFJPti4o).                                                                                                                                                                                                        |
-|      2. | Coretime Market contract   | We will develop the Coretime market as an ink! smart contract, as described above in the _Secondary Market_ section.                                                                                                                                                    |
+|      2. | Region derivation        | We will implement region derivation as described in the project details section. This feature will be used by the Coretime market to enable users to buy only a chunk of a listed region.                                                                                                                                 |
 |      3. | Finalize market UI designs | We will finalize the design for the Coretime market UI. Following this, we will proceed to develop the frontend code.                                                                                                                                                   |
 |      4. | Coretime Market UI         | We will create the UI for interacting with all the functionality exposed by the Coretime market contract. The UI will also offer an intuitive design that allows the buyer to describe their desired region.                                                            |
 
@@ -396,7 +448,7 @@ Github profiles of team mebers:
 
 |  Number | Deliverable                        | Specification                                                                                                                                                                                        |
 | ------: | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0a.** | License                            | MIT (?)                                                                                                                                                                                              |
+| **0a.** | License                            | MIT                                                                                                                                                                                              |
 | **0b.** | Documentation                      | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
 | **0c.** | Testing and Testing Guide          | The data dashboard doesn't contain any critical logic; nevertheless, we will ensure that all the data displayed on the dashboard is accurate.                                                        |
 | **0d.** | Docker                             | We will provide Dockerfiles for the ink! smart contracts that will configure and run the Corego UI.                                                                                             |
@@ -412,7 +464,7 @@ Github profiles of team mebers:
 
 |  Number | Deliverable               | Specification                                                                                                                                                                                        |
 | ------: | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0a.** | License                   | MIT (?)                                                                                                                                                                                              |
+| **0a.** | License                   | MIT                                                                                                                                                                                              |
 | **0b.** | Documentation             | We will create documentation that thoroughly explains all aspects of the UI. Our goal is to design the UI to be as intuitive as possible, so users require minimal familiarization with the project. |
 | **0c.** | Testing and Testing Guide | All UI interactions will undergo comprehensive testing to guarantee a seamless experience for users when using the Corego UI. We will additionally ensure that the alerts are working correctly.     |
 | **0d.** | Docker                    | We will provide Dockerfiles for the ink! smart contracts that will configure and run the Corego UI.                                                                                             |
@@ -479,7 +531,6 @@ To achieve this, we will use a specific KPI (Coretime utilized / Coretime bought
 We will implement these alerts using our own infrastructure, allowing us to export more data and integrate with more communication networks (Matrix, WhatsApp, Email). This commitment to having infrastructure assigned to alerts will specifically benefit us as we anticipate that most notification services won’t support our chain early on.
 
 - **Expiring Region Warning**
-
 	Warning the user, whenever one of his regions is close to expiry, will remind him to potentially buy a new region for future assignments.
 
 	We look to integrate this alert by creating a unique event that emits when the region’s parameter ‘when’ exceeds ‘last_until’ and emits an event to reflect this. We will listen to this event and alert the user when it is emitted.
