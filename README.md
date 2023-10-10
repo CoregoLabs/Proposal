@@ -25,9 +25,9 @@ The project essentially consists of four parts that will create a cohesive appli
 
 #### Coretime UI
 
-Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, users must be able to perform actions on their Coretime using Corego. For this reason, we will provide the Coretime UI, which will simplify the management of regions.
+Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, users must be able to perform actions on their Coretime using Corego. For this reason, we will provide the Coretime UI, which will simplify the management of regions. The following is a list of components we intend to incorporate into Corego.
 
-- **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that users can perform on their region. The following is a list of components we intend to incorporate into Corego.
+- **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that users can perform on their region.
 
     Region dashboard when nothing is selected: 
    <p align="center">
