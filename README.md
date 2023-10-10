@@ -25,9 +25,9 @@ The project essentially consists of four parts that will create a cohesive appli
 
 #### Coretime UI
 
-Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, users must be allowed to perform actions on their Coretime using Corego.
+Considering that the entire project is built upon the ideas presented in the Agile Coretime RFC, users must be able to perform actions on their Coretime using Corego. For this reason, we will provide the Coretime UI, which will simplify the management of regions.
 
-- **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that users can perform on their region.
+- **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that users can perform on their region. The following is a list of components we intend to incorporate into Corego.
 
     Region dashboard when nothing is selected: 
    <p align="center">
@@ -85,6 +85,7 @@ If a user doesn't want to buy the entire region but only a part of it, the buyer
 We refer to this feature as **Region Derivation**. It will give buyers more options when purchasing Coretime, making it easier to meet their specific needs.
 
 **Defining the price of Coretime**
+
 The price of Coretime will be highly influenced by supply and demand. Since we are constructing a market with an NFT order book model, users will have the authority to establish the price of the Coretime they intend to sell.
 
 Depending on whether the seller owns an entire core, only partitioned parts, or has it interlaced, the selling price of the Coretime will be affected.
@@ -109,8 +110,10 @@ As demonstrated in the previous example, buyers have the option to acquire only 
 2. The contract will transfer the entire region to the user and will write a record in the 'pending_derivations' mapping.
 3. The region will be transferred to the Coretime parachain, and the instructions will be executed on the region.
 4. The newly created regions will be transferred back to the contracts chain.
-5. The regions that the user doesn't need will be returned to the market, and the user will receive a partial refund of their deposit.
+5. The regions that the user doesn't need will be returned to the market, and the user will receive a partial refund of their deposit. The rest of the deposit goes to the seller
 6. The regions received by the market are relisted for sale under the original seller.
+
+In the event that the buyer doesn't return the regions before `DERIVATION_DURATION_LIMIT` elapses, the seller is entitled to claim the entire deposit.
 
 ```rs
 /// The duration limit of a derivation.
@@ -118,8 +121,8 @@ As demonstrated in the previous example, buyers have the option to acquire only 
 /// The buyer will only receive a refund when returning the expected regions before the 
 /// derivation duration limit is reached.
 //
-// NOTE: The value of the duration limit will adjusted after some testing.
-const DERIVATION_DURATION_LIMIT: BlockNumber = 6;
+// NOTE: The value of the duration limit will be adjusted.
+const DERIVATION_DURATION_LIMIT: BlockNumber = 15;
 
 struct RegionInfo {
     core_index: u16,
@@ -138,6 +141,12 @@ struct DerivationInfo {
     derivation_timestamp: BlockNumber,
 }
 
+#[ink(storage)]
+struct CoretimeMarket {
+	/* ... */
+	/// The `AccountId` represents the buyer.
+	pending_derivations: Mapping<AccountId, DerivationInfo>
+}
 ```
 
 However, manually specifying these instructions can be a challenging task for users.
@@ -145,6 +154,7 @@ However, manually specifying these instructions can be a challenging task for us
 The approach we aim to adopt here is to enable users to describe the desired characteristics of the region they require. Using all the provided input, the frontend will determine whether the specified region can be generated from any of the regions listed on the market. If a match is found, the user will be presented with a price for their region. Future iterations of this feature may include Natural Language Processing (NLP) to describe the region's characteristics.
 
 **Market Architecture**
+
 The Coretime marketplace can be implemented in four different ways, which include:
 
 1.  Ink! smart contract
@@ -156,12 +166,14 @@ From these options, we've selected the Ink! smart contract as our initial approa
 We possess a much more comprehensive overview of all these options, which we chose not to include here to avoid making this proposal too lengthy. However, we can provide it if there is interest.
 
 **Implementation Requirements**
+
 We came up with an implementation design that makes it possible to develop the market as an ink! smart contract located on a contracts parachain in the Polkadot/Kusama ecosystem.
 Our solution has very minimal and reasonable assumptions required to make this possible.
 
 Our sole assumption is that the concepts outlined in the Agile Coretime RFC are implemented in Polkadot/Kusama. We do not have any specific assumptions concerning the XCM configuration on the Coretime parachain to make this work. We only require that the Coretime parachain allows basic reserve transfers.
 
 **Region NFT Contract**
+
 To create a marketplace on a contracts parachain, we'll need an NFT region contract. We'll use the [Openbrush](https://openbrush.brushfam.io/) library to simplify development, as it only requires a few adjustments.
 
 #### Data Dashboard
@@ -171,6 +183,7 @@ Corego's **Data Dashboard** is a central hub for users, offering essential insig
 We have divided the data dashboard into four sections.
 
 **1. Constants**
+
 Displaying configuration constants to users is highly beneficial, giving them a more comprehensive macro understanding of the system.
 
 For instance, by tracking daily, weekly, or other periodic purchases and sales, users can better understand Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the [1inch](https://1inch.io/) protocol.
@@ -184,6 +197,7 @@ Data shown in the constants section:
 - Renewal Price Increase: The maximum price increase of a renewable region.
 
 **2. Coretime Chain**
+
 While we don't directly oversee the operations of the Coretime chain, indexing data from the primary market can offer significant insights.
 
 Data
@@ -207,6 +221,7 @@ Data
 	- Pending Payouts: Unclaimed payouts, reminiscent of the 'to be awarded' data on the dotreasury website.
 
 **3. Market**
+
 As the secondary market expands with increasing user transitions, it becomes crucial to index pertinent data.
 
 For instance, by tracking daily, weekly, or other periodic purchases and sales, users can gain a clearer understanding of Coretime's price trends. Moreover, real-time indexing of Coretime's price can offer immediate insights. Such data indexing could pave the way for aggregators to present users with diverse liquidity options across multiple Coretime markets akin to the **1inch** protocol.
