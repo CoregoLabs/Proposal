@@ -51,22 +51,13 @@ Considering that the entire project is built upon the ideas presented in the Agi
     <img width="800" src="https://i.postimg.cc/PJj7wGXP/b3.png"/>
   </p>
 
-- **Interlacing UI** will also allow users to easily interlace the region they own. The user will be able to specify the region core mask as a fraction. The UI will visually show a block colored with a distinct color based on the fraction. TODO: Provide a better image
-  <p align="center">
-    <img width="300" src="https://i.postimg.cc/brdwLzrz/image.png"/>
-  </p>
+- **Interlacing UI** will also allow users to easily interlace the region they own. The user will have the option to specify the region core mask as a fraction, with the denominator fixed at the number 8. The UI will visually display a block colored with two distinct colors based on the fraction to represent the amount of Coretime that can be utilized by the two overlapping regions.
 
 - **Naming Regions & Tasks**: Users will have the option to assign names to their regions and tasks, making it simple to differentiate them.
 
-- **Assignment UI** will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process. TODO: better image
-  <p align="center">
-    <img width="400" src="https://i.postimg.cc/ncjLDcN2/image-2.png"/>
-  </p>
+- **Assignment UI** will make it straightforward for users to allocate a task to their owned regions. The UI will display a dropdown menu containing all the tasks that the user has published to the relay chain, simplifying the selection process.
 
-- **Transfer** UI will offer a straightforward modal for users to perform transfers. TODO: better image
-  <p align="center">
-    <img width="300" src="https://i.postimg.cc/k59MzNGY/transfer.png"/>
-  </p>
+- **Transfer** UI will offer a straightforward modal for users to perform transfers.
 
 #### Secondary Market
 
@@ -74,7 +65,7 @@ Coretime is a resource that goes to waste if not utilized during its intended ti
 
 After buying Coretime during the bulk period, one may realize that the purchased Coretime is either too much or too little for the intended use. The secondary market assists these individuals and teams in rectifying their mistakes by enabling them to sell or buy more Coretime.
 
-Coretime can be partitioned and interlaced, meaning most of the Coretime on sale will hardly be the same. For this reason, we are going to utilise the order book model.
+Coretime can be partitioned and interlaced, meaning most of the Coretime on sale will hardly be the same. For this reason, we are going to utilize the order book model.
 
 The seller will need to specify the price for the entire region, and based on that, the contract will calculate the price of one bit, which is equivalent to 1/80th of the price of the entire region.
 
