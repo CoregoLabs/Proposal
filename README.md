@@ -29,12 +29,26 @@ Considering that the entire project is built upon the ideas presented in the Agi
 
 - **Regions Dashboard** will serve as a central hub for users, allowing them to browse all of the regions they own. The regions will be presented as UI card components containing all relevant metadata and actions that users can perform on their region.
 
-  TODO: IMAGE
+    Region dashboard when nothing is selected: 
+   <p align="center">
+    <img width="800" src="https://i.postimg.cc/dt0kKhFS/a2.png"/>
+   </p>
+
+    Region dashboard when a region is selected: 
+   <p align="center">
+    <img width="800" src="https://i.postimg.cc/4NMCN0CR/a1.png"/>
+   </p>
 
 - **Partitioning UI** will offer users a convenient method for splitting their region. The UI will visually represent the region as a timeline, highlighting all potential pivotal points available for partitioning.
 
+  	The Partitioning UI visualizes the region as a timeline and divides it into the selected TIME UNIT. This allows the user to easily determine the pivot point.
   <p align="center">
-    <img width="800" src="https://i.postimg.cc/zB7y0tkk/parititoning-v2.png"/>
+    <img width="800" src="https://i.postimg.cc/XYLnN8gf/b2.png"/>
+  </p>
+
+	When the pivot point is selected:
+  <p align="center">
+    <img width="800" src="https://i.postimg.cc/PJj7wGXP/b3.png"/>
   </p>
 
 - **Interlacing UI** will also allow users to easily interlace the region they own. The user will be able to specify the region core mask as a fraction. The UI will visually show a block colored with a distinct color based on the fraction. TODO: Provide a better image
