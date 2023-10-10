@@ -76,8 +76,7 @@ This bit-based valuation means that the total value of the Coretime owned by the
 	-   The user will have to pay the price for the region; however, this won't be the price of the entire region. The price will be defined by `remaining_smallest_units * price_per_unit`.
 3.  The user pays the price, the seller receives the paid amount, and the buyer receives the region.
 
-If a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to create a region with the properties they desire. The contract will be able to follow the buyer's steps and create a region that the buyer wants to buy. 
-The contract will also calculate the amount that needs to be paid for that and charge the buyer the appropriate amount. After all these steps, the seller will receive their tokens, and the buyer will obtain their desired Coretime. 
+If a user doesn't want to buy the entire region but only a part of it, the buyer will need to specify which parts of the region they want and provide the steps to create a region with the properties they desire. This way, the user pays only for the portion of the region they wish to acquire.
 We refer to this feature as **Region Derivation**. It will give buyers more options when purchasing Coretime, making it easier to meet their specific needs.
 
 **Defining the price of Coretime**
@@ -98,9 +97,47 @@ This approach allows us to easily calculate the price of the region the buyer in
 `price = bit_price * active_bits`
 
 **Region Derivation**
-As demonstrated in the previous example, buyers have the option to acquire only a portion of a region, which is achieved by the buyer submitting a set of instructions to generate the desired region. However, manually specifying these instructions can be a challenging task for users.
 
-The approach we aim to adopt here is to enable users to describe the desired characteristics of the region they require. Using all the provided input, the frontend will determine whether the specified region can be generated from all regions listed on the market. If a match is found, the user will be presented with a price for their region. Future iterations of this feature may include Natural Language Processing (NLP) to describe the region's characteristics.
+As demonstrated in the previous example, buyers have the option to acquire only a portion of a region, which is achieved by the buyer submitting a set of instructions to generate the desired region. A high level description of how this will work: 
+
+1. User will transfer a deposit that is equal to `region_price + bit_price * DERIVATION_DURATION_LIMIT`.
+2. The contract will transfer the entire region to the user and will write a record in the 'pending_derivations' mapping.
+3. The region will be transferred to the Coretime parachain, and the instructions will be executed on the region.
+4. The newly created regions will be transferred back to the contracts chain.
+5. The regions that the user doesn't need will be returned to the market, and the user will receive a partial refund of their deposit.
+6. The regions received by the market are relisted for sale under the original seller.
+
+```rs
+/// The duration limit of a derivation.
+///
+/// The buyer will only receive a refund when returning the expected regions before the 
+/// derivation duration limit is reached.
+//
+// NOTE: The value of the duration limit will adjusted after some testing.
+const DERIVATION_DURATION_LIMIT: BlockNumber = 6;
+
+struct RegionInfo {
+    core_index: u16,
+    begin: Timeslice,
+    end: Timeslice,
+    mask: CoreMask,
+    bit_price: Balance,
+}
+
+struct DerivationInfo {
+    /// All the regions that are expected to be returned from the buyer for a refund.
+    expected_regions: Vec<RegionInfo>,
+    /// The amount of refund the buyer can receive.
+    refund: Balance,
+    /// The block number when the buyer purchased the region for derivation.
+    derivation_timestamp: BlockNumber,
+}
+
+```
+
+However, manually specifying these instructions can be a challenging task for users.
+
+The approach we aim to adopt here is to enable users to describe the desired characteristics of the region they require. Using all the provided input, the frontend will determine whether the specified region can be generated from any of the regions listed on the market. If a match is found, the user will be presented with a price for their region. Future iterations of this feature may include Natural Language Processing (NLP) to describe the region's characteristics.
 
 **Market Architecture**
 The Coretime marketplace can be implemented in four different ways, which include:
