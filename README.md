@@ -333,6 +333,7 @@ As integrating the novel Coretime concept into Polkadot unfolds, we remain vigil
 
 - Julian Saks
 - Sergej Sakac
+- Oliver Lim
 
 ### Contact
 
@@ -351,6 +352,9 @@ Julian is the President of Texas Blockchain and a third-year student at the Univ
 
 Sergej is a member of the Polkadot Fellowship. He has been an external core contributor on substrate and polkadot for more than a year now. Sergej is also a recent Engineering alumni of the Polkadot Blockchain Academy (PBA) held in Berkeley.
 
+Oliver is a full stack blockchain developer who was involved in 3 projects granted by the Web3 Foundation. He worked with Sergej on [Dotflow](https://github.com/thedotflow).
+Some of the past projects Oliver has worked on are [fs-dapp](https://github.com/fair-squares/fs-dapp), [imbue-frontend](https://github.com/imbuenetwork/imbue-frontend), [dotflow](https://github.com/TheDotflow/dotflow-ui)
+
 ### Team Code Repos
 
 Github organization:
@@ -360,11 +364,13 @@ Github profiles of team mebers:
 
 - https://github.com/Szegoo
 - https://github.com/kingjulio8238
+- https://github.com/cuteolaf
 
 ### Team LinkedIn Profiles (if available)
 
-- linkedin.com/in/juliansaks/
-- linkedin.com/in/sergej-sakac-334a47252
+- https://www.linkedin.com/in/juliansaks/
+- https://www.linkedin.com/in/sergej-sakac-334a47252
+- https://www.linkedin.com/in/cuteolaf
 
 ## Development Roadmap 🔩
 
